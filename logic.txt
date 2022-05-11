@@ -3,10 +3,16 @@ SignUp / Name / Email / Password / Picture
 Log In / Email / Passworda
 Show Homepage / TotalMoney / (month)Income / (month)Expenses
 Profile / LogOut / ButtonOnClick -/+ /
-Geld Hinzufügen
+Geld Hinzufügen 
 Geld Abziehen
 (((Statistic / Expenses & Income)))
 Transaction Details / Income & Expenses
+
+
+Datenbank monoApp
+User -> Name, Email, Password, Picture, totalBalance(+/-) 2000 (+100)
+
+Transaction -> Name(to/from), amount, dateTime, Picture, Status(income/Expense)
 
 
 2.0 Paypal und Bank Account sind mit der App verknüpft
