@@ -1,3 +1,12 @@
-hi sara
-Marzio Test
-Gianluca Test(Y)
+Functionen monoApp
+SignUp / Name / Email / Password / Picture
+Log In / Email / Passworda
+Show Homepage / TotalMoney / (month)Income / (month)Expenses
+Profile / LogOut / ButtonOnClick -/+ /
+Geld Hinzufügen
+Geld Abziehen
+(((Statistic / Expenses & Income)))
+Transaction Details / Income & Expenses
+
+
+2.0 Paypal und Bank Account sind mit der App verknüpft
