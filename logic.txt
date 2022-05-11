@@ -10,9 +10,37 @@ Transaction Details / Income & Expenses
 
 
 Datenbank monoApp
-User -> Name, Email, Password, Picture, totalBalance(+/-) 2000 (+100)
 
-Transaction -> Name(to/from), amount, dateTime, Picture, Status(income/Expense)
+
+
+Transaction Collection:
+Transaction -> _Id, name, income, amount, date, time, picture:
+
+{
+  "_id": 2561658146881,
+  "name": "Amazon Abbuchung",
+  "income": false, 
+  "amount": 52,
+  "date": 02.05.2022,
+  "time": 14:55,
+  "pictures": "asdfasdfreqgqergwefpüwefklo43pkpüwlqf0kweqrpgqpüakfeäpoqarg" 
+}
+
+
+
+User Collection:
+User -> _id, userName, email, passwordHash, passwordSalt, avatar, totalBalance:
+
+{
+  "_id": 256163322331,
+  "userName": "Max Mustermann",
+  "email": "max@muster.de",
+  "passwordSalt": "dagfadsfadfadf43535516asdfasdfas181", 
+  "passwordHash": "dagfadsfeefl33+33pofgkmoiasdjfasdfadsf6asdfasdfasf16816168181", 
+  "avatar": "asdfasdfreqgqergwefpüwefklo43pkpüwlqf0kweqrpgqpüakfeäpoqarg",
+  "totalBalance": 52455,
+}
+
 
 
 2.0 Paypal und Bank Account sind mit der App verknüpft
