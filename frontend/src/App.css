@@ -1,26 +1,53 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;900&display=swap'); 
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;900&display=swap");
 
 :root {
   --maincolor: #2b47fc;
-  --secondcolor: rgba(136, 152, 255, 1);
-  --coursecolor: linear-gradient(
-    180deg,
-    rgba(136, 152, 255, 1) 0%,
-    rgba(43, 71, 252, 1) 100%
-  );
+  --secondcolor: #8898ff;
+}
+
+/*VERLAUF BLAU*/
+
+/* background: rgb(136, 152, 255);
+background: linear-gradient(
+  180deg,
+  rgba(136, 152, 255, 1) 0%,
+  rgba(43, 71, 252, 1) 100%
+); */
+
+body {
+  font-family: Inter, Arial;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+h1 {
+  font-size: 38px;
 }
 
 h2 {
-  color: red;
+  font-size: 30px;
 }
 
-.App {
-  height: 100vh;
-  width: 100vw;
-  background: rgb(136, 152, 255);
-  background: linear-gradient(
-    180deg,
-    rgba(136, 152, 255, 1) 0%,
-    rgba(43, 71, 252, 1) 100%
-  );
+h3 {
+  font-size: 24px;
+}
+
+h5 {
+  font-size: 20px;
+}
+
+h4 {
+  font-size: 18px;
+}
+
+h5 {
+  font-size: 16px;
+}
+
+p {
+  font-size: 14px;
 }
