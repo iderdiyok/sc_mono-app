@@ -1,19 +1,17 @@
 const { UserDAO } = require("../db-access");
 const { makeUser } = require("../domain/User");
-const { createPasswordHash } = require("../utils/hash");
+const { createPasswordHash, createToken } = require("../utils/hash");
 
 
 async function loginUser({ email, password }) {
     const invalidLoginMessage = "Invalid Login"
     const foundUser = await UserDAO.findUserByEmail(email)
     if (!foundUser) {
-        throw new Error(invalidLoginMessage)
+        throw new Error("user not found")
     }
     const user = makeUser(foundUser)
     const passwordHash = createPasswordHash(password, user.passwordSalt)
-
     const correctPassword = passwordHash === user.passwordHash
-
     if (!correctPassword) {
         throw new Error(invalidLoginMessage)
     }
@@ -25,7 +23,26 @@ async function loginUser({ email, password }) {
 
     return { token, refreshToken }
 }
+// async function loginUser({ email, password }) {
 
+//     const invalidLoginMessage = "Invalid Login"
+//     const foundUser = await UserDAO.findUserByEmail(email)
+//     if (!foundUser) {
+//         throw new Error(invalidLoginMessage)
+//     }
+
+//     const user = makeUser(foundUser)
+//     const passwordHash = createPasswordHash(password, user.passwordSalt)
+
+//     const correctPassword = user.passwordHash === passwordHash
+
+//     if (!correctPassword) {
+//         throw new Error(invalidLoginMessage)
+//     }
+//     const token = createToken(user)
+//     return token
+
+// }
 module.exports = {
     loginUser
 }
