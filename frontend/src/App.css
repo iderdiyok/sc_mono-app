@@ -51,3 +51,30 @@ h5 {
 p {
   font-size: 14px;
 }
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+.btn-blue {
+  margin: 0 50px;
+  padding: 20px 0px;
+  background: linear-gradient(
+    180deg,
+    rgba(136, 152, 255, 1) 0%,
+    rgba(43, 71, 252, 1) 100%
+  );
+  color: white;
+  font-size: 18px;
+  text-decoration: none;
+  border-radius: 40px;
+  justify-content: center;
+  align-items: center;
+  font-weight: 600;
+  display: flex;
+}
+
