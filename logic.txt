@@ -23,7 +23,8 @@ Transaction -> _Id, name, income, amount, date, time, picture:
   "amount": 52,
   "date": 02.05.2022,
   "time": 14:55,
-  "pictures": "asdfasdfreqgqergwefpüwefklo43pkpüwlqf0kweqrpgqpüakfeäpoqarg" 
+  "pictures": "https://www.clipartmax.com/png/small/296-2969961_no-image-user-profile-icon.png" 
+  "userId": 256163322331
 }
 
 
