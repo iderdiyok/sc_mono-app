@@ -6,7 +6,7 @@ const StartPage = () => {
       <img src="./img/Man.png" alt="" />
       <h1>Spend Smarter</h1>
       <h1>Save More</h1>
-      <Link className="btn-blue" to="/login">
+      <Link to="/login" className="btn-blue" >
         Get Started
       </Link>
 
