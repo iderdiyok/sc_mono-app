@@ -16,6 +16,7 @@ background: linear-gradient(
 
 body {
   font-family: Inter, Arial;
+  padding: 10px;
 }
 
 * {
