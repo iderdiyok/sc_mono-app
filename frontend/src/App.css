@@ -1,24 +1,116 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;900&display=swap");
+
 :root {
   --maincolor: #2b47fc;
-  --secondcolor: rgba(136, 152, 255, 1);
-  --coursecolor: linear-gradient(
-    180deg,
-    rgba(136, 152, 255, 1) 0%,
-    rgba(43, 71, 252, 1) 100%
-  );
+  --secondcolor: #8898ff;
+  --textcolor: rgb(44, 44, 44);
+  --inputtext: #666666;
+  --inputborder: #dddddd;
+  --Iconmenu: #aaaaaa;
+  --green: #00b495;
+  --red: #e4797f;
+  --lightgray: #fafafa ;
+}
+
+/*VERLAUF BLAU*/
+
+/* background: rgb(136, 152, 255);
+background: linear-gradient(
+  180deg,
+  rgba(136, 152, 255, 1) 0%,
+  rgba(43, 71, 252, 1) 100%
+); */
+
+body {
+  font-family: Inter, Arial;
+}
+
+main {
+  padding: 10px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/*Basic Style*/
+h1 {
+  font-size: 38px;
+  font-weight: 600;
 }
 
 h2 {
-  color: red;
+  font-size: 30px;
 }
 
-.App {
-  height: 100vh;
-  width: 100vw;
-  background: rgb(136, 152, 255);
+h3 {
+  font-size: 24px;
+}
+
+h5 {
+  font-size: 20px;
+}
+
+h4 {
+  font-size: 18px;
+}
+
+h5 {
+  font-size: 16px;
+}
+
+p {
+  font-size: 14px;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/*Button Style*/
+.btn-blue {
+  margin: 0 50px;
+  padding: 20px 0px;
   background: linear-gradient(
     180deg,
     rgba(136, 152, 255, 1) 0%,
     rgba(43, 71, 252, 1) 100%
   );
+  color: white;
+  font-size: 18px;
+  text-decoration: none;
+  border-radius: 40px;
+  justify-content: center;
+  align-items: center;
+  font-weight: 600;
+  display: flex;
+  border: none;
+}
+
+/*From Style*/
+
+label {
+  text-transform: uppercase;
+  display: flex;
+  flex-direction: column;
+  font-size: 12px;
+  color: var(--inputtext);
+  margin-bottom: 30px;
+}
+
+
+input[type="text"],
+input[type="password"]{
+  height: 45px;
+   width: 100%; 
+  padding: 17px;
+  border-radius: 8px;
+  border: 2px solid var(--inputborder);
+  color: var(--inputtext);
+  margin-top: 10px;
+  font-size: 16px;
 }
