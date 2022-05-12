@@ -6,8 +6,6 @@ const cookieSession = require("cookie-session")
 const { userRouter } = require("./routes/user-routes")
 const { transactionsRouter } = require("./routes/transactions-routes")
 
-
-
 const PORT = process.env.PORT || 9000
 const app = express()
 app.use(cors({ origin: [process.env.FRONTEND_URL], credentials: true }))
@@ -28,7 +26,6 @@ app.use(
         secure: isLocalHost ? false : true,
     })
 );
-
 
 //Routes
 app.get("/", (_, res) => {

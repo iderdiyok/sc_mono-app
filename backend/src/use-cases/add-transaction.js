@@ -1,11 +1,10 @@
 const { TransactionsDAO } = require("../db-access")
 const { makeTransaction } = require("../domain/Transaction")
 
-async function addTransaction({ name, income, amount}) {
-    const newTransaction = makeTransaction({ name,income,amount})
-    console.log(newTransaction);
+async function addTransaction({ name, income, amount, userId}) {
+    const newTransaction = makeTransaction({ name,income,amount, userId})
+    
     const insertResult = await TransactionsDAO.insertTransaction(newTransaction)
-    console.log(insertResult);
     const wasSuccess = insertResult.acknowledged === true && insertResult.insertedId
 
     if(!wasSuccess){
@@ -13,7 +12,6 @@ async function addTransaction({ name, income, amount}) {
     }
 
     const foundTransaction = TransactionsDAO.findTransactionById(insertResult.insertedId)
-    console.log(foundTransaction);
     return foundTransaction
 }
 
