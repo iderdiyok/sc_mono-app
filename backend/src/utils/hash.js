@@ -4,7 +4,6 @@ const jwt = require("jsonwebtoken")
 function hash(input) {
     return crypto.createHash('sha256').update(input).digest('hex')
 }
-//salt is short random set of char.s wich is diffrent for evrysingle user
 function createRandomSalt() {
     return crypto.randomBytes(64).toString('hex')
 }

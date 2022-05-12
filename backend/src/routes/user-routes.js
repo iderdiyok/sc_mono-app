@@ -30,36 +30,51 @@ userRouter.post("/register", async (req, res) => {
 }
 )
 userRouter.post("/login", async (req, res) => {
+    console.log("login in user-routes");
     try {
         const result = await UserService.loginUser({
-            userName: req.body.userName,
+            email: req.body.email,
             password: req.body.password
         })
+
         if (result.refreshToken) {
             req.session.refreshToken = result.refreshToken
         }
-
+        console.log("result", result);
         res.status(200).json(result)
     } catch (error) {
         console.log(error);
         res.status(500).json({ err: { message: err ? err.message : "Unknown error while logging in." } })
     }
 })
-// i just copy that muss weiter bearbeitet
-userRouter.post("/refreshtoken",
-    // body("refreshToken").isLength({ min: 10 }), // nur wenn wir keine cookie-session verwenden, dann MUSS der refreshToken im body sein...
-    // doValidations,
-    async (req, res) => {
-        try {
-            const result = await UserService.refreshUserToken({
-                refreshToken: req.session.refreshToken || req.body.refreshToken
-            })
-            res.status(200).json(result)
-        } catch (err) {
-            res.status(500).json({ err: { message: err ? err.message : "Unknown error while refreshing your token." } })
-        }
+// i just copied that muss weiter bearbeitet
+userRouter.post("/refreshtoken", async (req, res) => {
+    console.log("refresh token is called");
+    try {
+        const result = await UserService.refreshUserToken({
+            refreshToken: req.session.refreshToken || req.body.refreshToken
+        })
+        res.status(200).json(result)
+    } catch (err) {
+        res.status(500).json({ err: { message: err ? err.message : "Unknown error while refreshing your token." } })
     }
+}
 )
 module.exports = {
     userRouter
 }
+// this works --> it generates an access token
+// userRouter.post("/login", async (req, res) => {
+//     console.log("login in user-routes");
+//     try {
+//         const email = req.body.email
+//         const password = req.body.password
+//         console.log("email", email);
+//         console.log("password", password);
+//         const token = await UserService.loginUser({ email, password })
+//         res.json({ token })
+//     } catch (error) {
+//         console.log(error);
+//         res.status(500).json({ err: { message: err ? err.message : "Unknown error while logging in." } })
+//     }
+// })
