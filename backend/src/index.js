@@ -1,8 +1,11 @@
 const express = require("express")
 const cors = require("cors")
 const morgan = require("morgan")
-const cookieSession = require("cookie-session")
-const { userRouter } = require("./src/routes/user-routes")
+// const cookieSession = require("cookie-session")
+
+
+const { userRouter } = require("./routes/user-routes")
+const { transactionsRouter } = require("./routes/transactions-routes")
 
 
 const PORT = process.env.PORT || 9000
@@ -31,5 +34,6 @@ app.get("/", (_, res) => {
 })
 
 app.use("/api/users", userRouter)
-// http://localhost:9000/api/users/allUsers
+app.use("/api/transactions", transactionsRouter)
+
 app.listen(PORT, () => console.log("Server ready at", PORT))
