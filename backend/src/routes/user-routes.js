@@ -1,5 +1,6 @@
 const express = require("express")
 const multer = require("multer")
+const { doAuthMiddleware } = require("../auth/doAuthMiddleware")
 const { UserService } = require("../use-cases")
 const { imageBufferToBase64 } = require("../utils/hash")
 
@@ -47,6 +48,17 @@ userRouter.post("/login", async (req, res) => {
         res.status(500).json({ err: { message: err ? err.message : "Unknown error while logging in." } })
     }
 })
+userRouter.get("/profile/:userid",
+    doAuthMiddleware,
+    async( req, res ) => {
+        try {
+            const userId = req.params.userid
+            const userWallet = await UserService.showWallet({ userId })
+        } catch (err) {
+            res.status(500).json({ err: {message: err ? err.message: "User not found..."}})
+        }
+    }
+)
 // i just copied that muss weiter bearbeitet
 userRouter.post("/refreshtoken", async (req, res) => {
     console.log("refresh token is called");
