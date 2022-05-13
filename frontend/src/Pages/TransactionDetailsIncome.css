@@ -1,0 +1,21 @@
+section {
+  background-color: var(--maincolor);
+  height: 20vh;
+}
+section h1 {
+  color: white;
+  font-size: 1rem;
+  padding-top: 4rem;
+}
+article div hr {
+  margin: 2rem 0 1rem 0;
+}
+article {
+  border-radius: 5%;
+  background-color: white;
+  margin-top: -1rem;
+}
+.test {
+  display: flex;
+  justify-content: space-between;
+}
