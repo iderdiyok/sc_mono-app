@@ -1,9 +1,10 @@
 const express = require("express")
 const cors = require("cors")
 const morgan = require("morgan")
-const cookieSession = require("cookie-session")
-const { userRouter } = require("./src/routes/user-routes")
 
+const cookieSession = require("cookie-session")
+const { userRouter } = require("./routes/user-routes")
+const { transactionsRouter } = require("./routes/transactions-routes")
 
 const PORT = process.env.PORT || 9000
 const app = express()
@@ -14,16 +15,17 @@ app.use(express.json())
 const oneDayInMs = 24 * 60 * 60 * 1000;
 const isLocalHost = process.env.FRONTEND_URL === 'http://localhost:3000';
 app.set('trust proxy', 1); // trust first proxy
-// app.use(
-//     cookieSession({
-//         name: 'session',
-//         secret: process.env.COOKIE_SESSION_SECRET,
-//         httpOnly: true,
-//         expires: new Date(Date.now() + oneDayInMs),
-//         sameSite: isLocalHost ? 'lax' : 'none',
-//         secure: isLocalHost ? false : true,
-//     })
-// );
+
+app.use(
+    cookieSession({
+        name: 'session',
+        secret: process.env.COOKIE_SESSION_SECRET,
+        httpOnly: true,
+        expires: new Date(Date.now() + oneDayInMs),
+        sameSite: isLocalHost ? 'lax' : 'none',
+        secure: isLocalHost ? false : true,
+    })
+);
 
 //Routes
 app.get("/", (_, res) => {
@@ -31,5 +33,6 @@ app.get("/", (_, res) => {
 })
 
 app.use("/api/users", userRouter)
-// http://localhost:9000/api/users/allUsers
+app.use("/api/transactions", transactionsRouter)
+
 app.listen(PORT, () => console.log("Server ready at", PORT))

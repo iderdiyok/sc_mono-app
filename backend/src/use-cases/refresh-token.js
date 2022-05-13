@@ -1,6 +1,8 @@
 const jwt = require("jsonwebtoken")
 const { UserDAO } = require("../db-access")
 const { makeUser } = require("../domain/User")
+const { createToken } = require("../utils/hash")
+
 
 async function refreshUserToken({ refreshToken }) {
     try {
