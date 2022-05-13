@@ -1,5 +1,6 @@
 const express = require("express")
 const multer = require("multer")
+const { doAuthMiddleware } = require("../auth/doAuthMiddleware")
 const { UserService } = require("../use-cases")
 const { imageBufferToBase64 } = require("../utils/hash")
 
@@ -16,6 +17,7 @@ userRouter.get("/allUsers", async (_, res) => {
         res.status(500).json({ error: { message: error ? error.message : "Unknown error while loading all users." } })
     }
 })
+//pictureUploadMiddleWare is need it here
 userRouter.post("/register", async (req, res) => {
     try {
         const userInfo = req.body
@@ -47,7 +49,19 @@ userRouter.post("/login", async (req, res) => {
         res.status(500).json({ err: { message: err ? err.message : "Unknown error while logging in." } })
     }
 })
-// i just copied that muss weiter bearbeitet
+
+userRouter.get("/profile/:userid",
+    doAuthMiddleware,
+    async( req, res ) => {
+        try {
+            const userId = req.params.userid
+            const userWallet = await UserService.showWallet({ userId })
+        } catch (err) {
+            res.status(500).json({ err: {message: err ? err.message: "User not found..."}})
+        }
+    }
+)
+
 userRouter.post("/refreshtoken", async (req, res) => {
     console.log("refresh token is called");
     try {
@@ -63,18 +77,3 @@ userRouter.post("/refreshtoken", async (req, res) => {
 module.exports = {
     userRouter
 }
-// this works --> it generates an access token
-// userRouter.post("/login", async (req, res) => {
-//     console.log("login in user-routes");
-//     try {
-//         const email = req.body.email
-//         const password = req.body.password
-//         console.log("email", email);
-//         console.log("password", password);
-//         const token = await UserService.loginUser({ email, password })
-//         res.json({ token })
-//     } catch (error) {
-//         console.log(error);
-//         res.status(500).json({ err: { message: err ? err.message : "Unknown error while logging in." } })
-//     }
-// })

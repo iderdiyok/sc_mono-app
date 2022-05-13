@@ -22,10 +22,16 @@ async function insertUser(userInfo) {
     return insertResult
 }
 
+async function updateUsersTotalBalance(userId, totalBalance){
+    const db = await getDB()
+    const updateResult = await db.collection("users").update({ _id: new ObjectId(userId) }, {$set: {"totalBalance": totalBalance}})
+    return updateResult
+}
 module.exports = {
     findAllUsers,
     findUserByEmail,
     findUserById,
-    insertUser
+    insertUser,
+    updateUsersTotalBalance
 }
 
