@@ -7,7 +7,7 @@ function makeTransaction({
     amount,
     date = current.toLocaleDateString(),
     time = current.toLocaleTimeString(),
-    userId = "627cc32aa22000a977d52518"
+    userId
 }) {
     if(!name){
         throw new Error("Transaction must include name")
