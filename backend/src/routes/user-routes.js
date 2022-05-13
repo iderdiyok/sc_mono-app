@@ -56,6 +56,7 @@ userRouter.get("/profile/:userid",
         try {
             const userId = req.params.userid
             const userWallet = await UserService.showWallet({ userId })
+            res.status(200).json(userWallet)
         } catch (err) {
             res.status(500).json({ err: {message: err ? err.message: "User not found..."}})
         }
