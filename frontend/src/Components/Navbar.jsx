@@ -25,7 +25,7 @@ item.addEventListener('click', activeLink))
   return (
     <nav className="navigation">
       <ul>
-       <li className="list">
+       <li className="list active">
            <NavLink to="/home">
             <span className="icon"> <HomeIcon /></span>
             <span className="text"> Home</span>
