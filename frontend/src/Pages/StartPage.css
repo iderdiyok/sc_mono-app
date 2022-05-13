@@ -1,0 +1,18 @@
+img {
+  text-align: center;
+  height: 65vh;
+  width: 95vw;
+}
+
+h1 {
+  text-align: center;
+  color: var(--maincolor);
+}
+.space {
+  margin-bottom: 5%;
+}
+
+p {
+  text-align: center;
+  margin-top: 5%;
+}
