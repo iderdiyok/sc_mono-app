@@ -6,6 +6,7 @@ const { registerUser } = require("./register-user")
 
 //TransactionService
 const { addTransaction } = require("./add-transaction")
+const { showTransaction } = require("./show-transaction")
 
 
 
@@ -18,5 +19,6 @@ const UserService = {
 
 const TransactionService = {
     addTransaction,
+    showTransaction
 }
 module.exports = { UserService, TransactionService }

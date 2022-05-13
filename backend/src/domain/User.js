@@ -10,7 +10,9 @@ function makeUser({
     passwordSalt
 
 }) {
-
+    if (!userName) {
+        throw new Error("username must exist.")
+    }
     if (!email) {
         throw new Error("E-Mail must exist.")
     }

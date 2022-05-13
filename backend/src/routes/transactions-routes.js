@@ -23,11 +23,20 @@ transactionsRouter.post("/add",
 
             res.status(201).json(result)
         } catch (err) {
-            res.status(500).json({ err: { message: err ? err.message : "Unknown error while adding a new transaction"} })
+            res.status(500).json({ err: { message: err ? err.message : "Unknown error while adding a new transaction" } })
         }
     }
 
 )
-
+//mit auth ?
+transactionsRouter.get("/:transactionId", async (req, res) => {
+    try {
+        const transactionId = req.params.transactionId
+        const result = await TransactionService.showTransaction({ transactionId })
+        res.status(200).json(result)
+    } catch (error) {
+        res.status(500).json({ error: { message: error ? error.message : "Unknown error while loading post." } })
+    }
+})
 
 module.exports = { transactionsRouter }

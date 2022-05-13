@@ -3,13 +3,13 @@
 :root {
   --maincolor: #2b47fc;
   --secondcolor: #8898ff;
-  --textcolor: rgb(44, 44, 44);
+  --textcolor: rgb(25, 25, 25);
   --inputtext: #666666;
   --inputborder: #dddddd;
   --Iconmenu: #aaaaaa;
   --green: #00b495;
   --red: #e4797f;
-  --lightgray: #fafafa ;
+  --lightgray: #fafafa;
 }
 
 /*VERLAUF BLAU*/
@@ -23,10 +23,12 @@ background: linear-gradient(
 
 body {
   font-family: Inter, Arial;
+  color: var(--textcolor);
 }
 
 main {
-  padding: 10px;
+  padding: 10px 15px;
+  position: relative;
 }
 
 * {
@@ -43,26 +45,36 @@ h1 {
 
 h2 {
   font-size: 30px;
+  font-weight: 600;
 }
 
 h3 {
   font-size: 24px;
+  font-weight: 600;
 }
 
 h5 {
   font-size: 20px;
+  font-weight: 600;
 }
 
 h4 {
   font-size: 18px;
+  font-weight: 600;
 }
 
 h5 {
   font-size: 16px;
+  font-weight: 600;
 }
 
 p {
   font-size: 14px;
+}
+
+a {
+  text-decoration: none;
+  color: var(--textcolor);
 }
 
 .center {
@@ -102,11 +114,10 @@ label {
   margin-bottom: 30px;
 }
 
-
 input[type="text"],
-input[type="password"]{
+input[type="password"] {
   height: 45px;
-   width: 100%; 
+  width: 100%;
   padding: 17px;
   border-radius: 8px;
   border: 2px solid var(--inputborder);
