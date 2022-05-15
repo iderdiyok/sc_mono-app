@@ -3,7 +3,7 @@ const ArrowBackIcon = () => {
     <svg
       xmlns="http://www.w3.org/2000/svg"
       width="7.847"
-      height="13.831"
+      height="15.831"
       viewBox="0 0 7.847 13.831"
     >
       <path
@@ -11,6 +11,7 @@ const ArrowBackIcon = () => {
         data-name="Form 1 Kopie 3"
         d="M1070.279,219.11l5.191-5.229a.993.993,0,0,0,0-1.4.976.976,0,0,0-1.387,0l-5.885,5.928a.993.993,0,0,0,0,1.4l5.885,5.928a.975.975,0,0,0,1.387,0,.993.993,0,0,0,0-1.4Z"
         transform="translate(-1067.911 -212.195)"
+        fill="white"
       />
     </svg>
   );

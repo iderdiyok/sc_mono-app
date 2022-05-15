@@ -1,10 +1,10 @@
-img {
+.start-page img {
   text-align: center;
   height: 65vh;
   width: 95vw;
 }
 
-h1 {
+.start-page h1 {
   text-align: center;
   color: var(--maincolor);
 }
