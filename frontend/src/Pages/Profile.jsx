@@ -14,7 +14,7 @@ import LogoutIcon from "../Components/Icons_Component/LogoutIcon";
 const Profile = () => {
   return (
     <main className="profile">
-      <HeaderLine title="Profile" />
+      <HeaderLine title="Profil" />
       <section>
         <div className="center avatar-img">
           <img src="../img/Man_background.png" alt="UserPhoto" />
