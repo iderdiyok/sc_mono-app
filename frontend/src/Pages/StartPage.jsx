@@ -3,7 +3,7 @@ import "./StartPage.css";
 
 const StartPage = () => {
   return (
-    <main>
+    <main  className="start-page">
       <img src="./img/Man_background.png" alt="" />
       <h1>Spend Smarter</h1>
       <h1 className="space">Save More</h1>

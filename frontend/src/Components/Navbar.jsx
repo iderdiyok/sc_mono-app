@@ -25,8 +25,8 @@ item.addEventListener('click', activeLink))
   return (
     <nav className="navigation">
       <ul>
-       <li className="list active">
-           <NavLink to="/home">
+       <li className="list ">
+           <NavLink to="/home" activeClassName="active">
             <span className="icon"> <HomeIcon /></span>
             <span className="text"> Home</span>
            </NavLink>
@@ -40,14 +40,14 @@ item.addEventListener('click', activeLink))
        </li>
        
        <li className="list">
-           <NavLink to="/einnahme">
+           <NavLink to="#">
             <span className="icon"> <PlusIcon /></span>
             <span className="text"> Add</span>
            </NavLink>
        </li>
        
        <li className="list">
-           <NavLink to="/wallet">
+           <NavLink to="#">
             <span className="icon"> <WalletIcon /></span>
             <span className="text"> Wallet</span>
            </NavLink>

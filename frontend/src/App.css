@@ -29,6 +29,7 @@ body {
 main {
   padding: 10px 15px;
   position: relative;
+  min-height: 100vh;
 }
 
 * {

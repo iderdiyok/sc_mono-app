@@ -60,10 +60,12 @@
   transform: translateY(20px);
 }
 
-.navigation ul li.active a .text {
+.active .navigation ul li.active a .text {
   opacity: 1;
   transform: translateY(10px);
 }
+
+
 
 .indicator {
   position: absolute;

@@ -5,6 +5,7 @@
     border-radius: 15px;
     margin: 150px 0 30px 0;
     box-shadow: 0 0 40px rgba(0, 0, 0, 0.245);
+    transition: all 0.5s ease-in-out;
 }
 
 .card-wrapper svg {
@@ -49,3 +50,11 @@
 .ausgaben{
     float: right;
 }
+
+.card-wrapper:hover{
+transform: translateY(-20px);
+box-shadow: 0 0 50px rgba(0, 0, 0, 0.545);
+}
+
+
+

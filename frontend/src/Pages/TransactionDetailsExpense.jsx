@@ -2,7 +2,7 @@ import "./TransactionDetailsExpense.css";
 
 const TransactionDetailsExpense = () => {
   return (
-    <main>
+    <main className="trans-detail-wrapper-expense">
       <section>
         <h1>Transaction details</h1>
       </section>
