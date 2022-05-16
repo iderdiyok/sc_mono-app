@@ -1,7 +1,13 @@
 import "./LoginPage.css";
 import { Link } from "react-router-dom";
+import { useState } from "react";
 
 const LoginPage = () => {
+  const [useremail, setUseremail] = useState("")
+  const [password, setPassword] = useState("")
+
+  // const [error, setError] = useState("")
+
   return (
     <main className="login-page">
       <h1>Login</h1>
@@ -10,11 +16,11 @@ const LoginPage = () => {
         <form>
           <label>
             E-Mail
-            <input type="text" placeholder="E-Mail" />
+            <input value={useremail} onChange={(e) => setUseremail(e.target.value)}  type="email" placeholder="E-Mail" />
           </label>
           <label>
             Passwort
-            <input type="password" placeholder="Passwort" />
+            <input value={password} onChange={(e) => setPassword(e.target.value)} type="password" placeholder="Passwort" />
           </label>
           <Link to="/home">
            <button className="btn-blue" type="submit">

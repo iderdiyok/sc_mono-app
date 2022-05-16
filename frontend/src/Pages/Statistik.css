@@ -1,0 +1,7 @@
+.statistik header {
+  color: var(--text);
+}
+
+.statistik header svg {
+  fill: rebeccapurple;
+}
