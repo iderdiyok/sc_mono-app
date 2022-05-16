@@ -16,9 +16,12 @@ const LoginPage = () => {
             Passwort
             <input type="password" placeholder="Passwort" />
           </label>
-          <button className="btn-blue" type="submit">
+          <Link to="/home">
+           <button className="btn-blue" type="submit">
             Login
           </button>
+          </Link>
+         
         </form>
       </section>
       <p>

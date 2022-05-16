@@ -2,6 +2,7 @@ import "./AddExpense.css";
 
 import HeaderLine from "../Components/HeaderLine";
 import AddPhotoBtn from "../Components/AddPhotoBtn";
+import Navbar from "../Components/Navbar";
 
 const AddIncome = () => {
   return (
@@ -28,6 +29,7 @@ const AddIncome = () => {
           </button>
         </form>
       </section>
+      <Navbar />
     </main>
   );
 };

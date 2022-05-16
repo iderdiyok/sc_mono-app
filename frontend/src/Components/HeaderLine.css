@@ -1,11 +1,7 @@
-.header-line{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    color: white;
-    margin: 55px 0 115px 0;
+.header-line {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+  padding: 55px 0 115px 0;
 }
-
-
-
- 

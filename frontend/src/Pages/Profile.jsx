@@ -22,7 +22,7 @@ const Profile = () => {
         <h3>Vorname Nachname</h3>
         <h5>vorname@gmail.com</h5>
       </section>
-      <section>
+      <section className="list-profil">
         <ul>
           <li>
             <Link to="#">
@@ -59,7 +59,7 @@ const Profile = () => {
             </Link>
           </li>
           <li>
-            <Link to="#">
+            <Link to="/login">
               <div className="icon-wrapper">
                 <LogoutIcon />
               </div>

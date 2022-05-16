@@ -1,67 +1,75 @@
 import "./Navbar.css";
-import { NavLink } from "react-router-dom";
+import { NavLink,Link } from "react-router-dom";
 
-import HomeIcon from "../Components/Icons_Component/HomeIcon"
-import StatistikIcon from "../Components/Icons_Component/StatistikIcon"
-import PlusIcon from "../Components/Icons_Component/PlusIcon"
-import WalletIcon from "../Components/Icons_Component/WalletIcon"
-import ProfilIcon from "../Components/Icons_Component/ProfilIcon"
+import HomeIcon from "./Icons_Component/HomeIcon";
+import StatistikIcon from "./Icons_Component/StatistikIcon";
+import PlusIcon from "./Icons_Component/PlusIcon";
+import MinusIcon from "./Icons_Component/MinusIcon";
+import WalletIcon from "./Icons_Component/WalletIcon";
+import ProfilIcon from "./Icons_Component/ProfilIcon";
 
+import { useState } from "react";
 
 const Navbar = () => {
+  const [state, setState] = useState(true);
 
-
-const list = document.querySelectorAll(".list")
-
-function activeLink(){
-    list.forEach((item) =>
-    item.classList.remove('active'));
-    this.classList.add('active')
-}
-list.forEach((item) => 
-item.addEventListener('click', activeLink))
-
+  const Toggle = () => {
+    setState(!state);
+  };
 
   return (
     <nav className="navigation">
       <ul>
-       <li className="list ">
-           <NavLink to="/home" activeClassName="active">
-            <span className="icon"> <HomeIcon /></span>
-            <span className="text"> Home</span>
-           </NavLink>
-       </li>
-      
-       <li className="list">
-           <NavLink to="/statistik">
-            <span className="icon"> <StatistikIcon /></span>
-            <span className="text"> Statistik</span>
-           </NavLink>
-       </li>
-       
-       <li className="list">
-           <NavLink to="#">
-            <span className="icon"> <PlusIcon /></span>
-            <span className="text"> Add</span>
-           </NavLink>
-       </li>
-       
-       <li className="list">
-           <NavLink to="#">
-            <span className="icon"> <WalletIcon /></span>
-            <span className="text"> Wallet</span>
-           </NavLink>
-       </li>
-       
-       <li className="list">
-           <NavLink to="/profil">
-            <span className="icon"> <ProfilIcon /></span>
-            <span className="text"> Profil</span>
-           </NavLink>
-       </li>
-       
-        <div className="indicator"></div>
+        <li>
+          <NavLink to="/home" activeClassName="active">
+            <HomeIcon />
+          </NavLink>
+        </li>
 
+        <li>
+          <NavLink to="/statistik" activeClassName="active">
+            <StatistikIcon />
+          </NavLink>
+        </li>
+
+        <li>
+          <NavLink to="#" activeClassName="active">
+            <div>
+              <div className={"plus-minus-wrapper " + (state ? "hidden" : "")}>
+                <Link to="/einnahme">
+                  <div className="plus-btn center">
+                    {" "}
+                    <PlusIcon />
+                  </div>
+                </Link>
+
+                <Link to="/ausgabe">
+                <div className="minus-btn center">
+                  {" "}
+                  <MinusIcon />
+                </div>
+                </Link>
+                
+              </div>
+
+              <div onClick={Toggle} className="plus-wrapper-icon center">
+                <PlusIcon />
+              </div>
+            </div>
+          </NavLink>
+        </li>
+
+        <li>
+          <NavLink to="/wallet" activeClassName="active">
+            <WalletIcon />
+          </NavLink>
+        </li>
+
+        <li>
+          <NavLink to="/profil" activeClassName="active">
+            <ProfilIcon />
+          </NavLink>
+        </li>
       </ul>
     </nav>
   );

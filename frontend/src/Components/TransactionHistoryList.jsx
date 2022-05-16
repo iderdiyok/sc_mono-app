@@ -10,20 +10,23 @@ const TransactionHistoryList = () => {
         <Link to="#">See all</Link>
       </article>
       <article className="list-body">
+        <Link to="/ausgaben-details">
         <div className="list-item">
           <div className="list-icon-name">
             <div className="icon-list center">
-              <h4>LO</h4>
+              <h3>C</h3>
             </div>
             <div>
-              <h5>Name</h5>
+              <h5>Claire Jovalski</h5>
               <p>25.05.2022</p>
             </div>
           </div>
           <div className="betrag">
-            <h4>+ 85.50 €</h4>
+            <h4>- 15,40</h4>
           </div>
         </div>
+        </Link>
+        
       </article>
     </section>
   );

@@ -27,7 +27,7 @@ body {
 }
 
 main {
-  padding: 10px 15px;
+  padding: 1px 15px;
   position: relative;
   min-height: 100vh;
 }
@@ -38,6 +38,9 @@ main {
   box-sizing: border-box;
 }
 
+img{
+  max-width: 100%;
+}
 /*Basic Style*/
 h1 {
   font-size: 38px;
