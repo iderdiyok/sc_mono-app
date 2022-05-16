@@ -1,0 +1,20 @@
+.add-expense{
+    min-height: 100vh;
+    background-color: white;
+    background-image: url(../../public/img/bg-curve-red.svg);
+    background-repeat: no-repeat;
+    background-size: inherit;
+    background-position: top;
+}
+
+.add-expense section{
+    background-color: white;
+    border-radius:20px ;
+    padding: 30px;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.189);
+
+}
+
+.add-expense form button{
+  margin: 0 0 0 auto;
+}

@@ -1,12 +1,10 @@
-var current = new Date()
-
 function makeTransaction({
     _id,
     name,
     income, 
     amount,
-    date = current.toLocaleDateString(),
-    time = current.toLocaleTimeString(),
+    date,
+    time,
     userId
 }) {
     if(!name){

@@ -1,16 +1,16 @@
-section {
+.trans-detail-wrapper-income section {
   background-color: var(--maincolor);
   height: 20vh;
 }
-section h1 {
+.trans-detail-wrapper-income section h1 {
   color: white;
   font-size: 1rem;
   padding-top: 4rem;
 }
-article div hr {
+.trans-detail-wrapper-income article div hr {
   margin: 2rem 0 1rem 0;
 }
-article {
+.trans-detail-wrapper-income article {
   border-radius: 5%;
   background-color: white;
   margin-top: -1rem;

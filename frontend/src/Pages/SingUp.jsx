@@ -21,7 +21,7 @@ const SingUp = () => {
             Passwort
             <input type="password" placeholder="Passwort" />
           </label>
-          <AddButtonIcon />
+          <AddButtonIcon label="User Foto" text="Foto Hinzufügen" />
 
           <button className="btn-blue" type="submit">
             Registrieren
