@@ -43,9 +43,7 @@ transactionsRouter.get("/:transactionId", doAuthMiddleware, async (req, res) => 
 transactionsRouter.put("/edit", doAuthMiddleware, async (req, res) => {
     try {
         const transactioUpdateInfo = req.body
-        console.log("transactioUpdateInfo", transactioUpdateInfo);
         const updatedTransaction = await TransactionService.editTransaction(transactioUpdateInfo)
-        console.log("updatedTransaction", updatedTransaction);
         res.json(updatedTransaction)
     } catch (error) {
         console.log(error);

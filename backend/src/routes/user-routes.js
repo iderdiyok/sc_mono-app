@@ -21,7 +21,6 @@ userRouter.get("/allUsers", async (_, res) => {
 userRouter.post("/register", async (req, res) => {
     try {
         const userInfo = req.body
-        console.log(userInfo);
         const user = await UserService.registerUser(userInfo)
         res.status(201).json(user)
     } catch (error) {
@@ -32,7 +31,6 @@ userRouter.post("/register", async (req, res) => {
 }
 )
 userRouter.post("/login", async (req, res) => {
-    console.log("login in user-routes");
     try {
         const result = await UserService.loginUser({
             email: req.body.email,
@@ -50,12 +48,25 @@ userRouter.post("/login", async (req, res) => {
     }
 })
 
-userRouter.get("/profile/:userid",
+userRouter.get("/show-wallet",
     doAuthMiddleware,
     async( req, res ) => {
         try {
-            const userId = req.params.userid
+            const userId = req.userClaims.sub
             const userWallet = await UserService.showWallet({ userId })
+            res.status(200).json(userWallet)
+        } catch (err) {
+            res.status(500).json({ err: {message: err ? err.message: "User not found..."}})
+        }
+    }
+)
+userRouter.get("/show-wallet-in-period",
+    doAuthMiddleware,
+    async( req, res ) => {
+        try {
+            const userId = req.userClaims.sub
+            const startEndTimeStamps = req.body.startEndTimeStamps
+            const userWallet = await UserService.ShowTransactionsInPeriod({ userId, startEndTimeStamps })
             res.status(200).json(userWallet)
         } catch (err) {
             res.status(500).json({ err: {message: err ? err.message: "User not found..."}})
@@ -64,7 +75,6 @@ userRouter.get("/profile/:userid",
 )
 
 userRouter.post("/refreshtoken", async (req, res) => {
-    console.log("refresh token is called");
     try {
         const result = await UserService.refreshUserToken({
             refreshToken: req.session.refreshToken || req.body.refreshToken
