@@ -39,4 +39,18 @@ transactionsRouter.get("/:transactionId", async (req, res) => {
     }
 })
 
+// edit transaction route 
+transactionsRouter.put("/edit", async (req, res) => {
+    try {
+        const transactioUpdateInfo = req.body
+        console.log("transactioUpdateInfo", transactioUpdateInfo);
+        const updatedTransaction = await TransactionService.editTransaction(transactioUpdateInfo)
+        console.log("updatedTransaction", updatedTransaction);
+        res.json(updatedTransaction)
+    } catch (error) {
+        console.log(error);
+        res.status(500).json("Unknown error while editing a Transaction.")
+    }
+})
+
 module.exports = { transactionsRouter }

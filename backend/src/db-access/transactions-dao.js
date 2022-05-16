@@ -3,12 +3,12 @@ const { getDB } = require("./getDB")
 
 async function findTransactionById(transactionId) {
     const db = await getDB()
-    const foundTransaction = await db.collection("transactions").findOne( { _id: new ObjectId(transactionId) } )
+    const foundTransaction = await db.collection("transactions").findOne({ _id: new ObjectId(transactionId) })
     return foundTransaction
 }
-async function findAllTransactionsOfUser(userId){
+async function findAllTransactionsOfUser(userId) {
     const db = await getDB()
-    const allTransactions = await db.collection("transactions").find({userId: userId}).toArray()
+    const allTransactions = await db.collection("transactions").find({ userId: userId }).toArray()
     return allTransactions
 }
 // async function findAllTransactionsOfUserFromCurrentMonth(userId){
@@ -16,14 +16,18 @@ async function findAllTransactionsOfUser(userId){
 //     const allTransactions = await db.collection("transactions").find({userId: userId}).toArray()
 //     return allTransactions
 // }
-async function insertTransaction(transaction){
+async function insertTransaction(transaction) {
     const db = await getDB()
     const insertionResult = await db.collection("transactions").insertOne(transaction)
     return insertionResult
 }
-
+async function updateTransaction(transactionId, transactionObject) {
+    const db = await getDB()
+    return db.collection("transactions").updateOne({ _id: new ObjectId(transactionId) }, { $set: transactionObject })
+}
 module.exports = {
     insertTransaction,
     findTransactionById,
-    findAllTransactionsOfUser
+    findAllTransactionsOfUser,
+    updateTransaction
 }
