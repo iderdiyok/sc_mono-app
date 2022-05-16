@@ -29,7 +29,7 @@ transactionsRouter.post("/add",
 
 )
 //mit auth ?
-transactionsRouter.get("/:transactionId", async (req, res) => {
+transactionsRouter.get("/:transactionId", doAuthMiddleware, async (req, res) => {
     try {
         const transactionId = req.params.transactionId
         const result = await TransactionService.showTransaction({ transactionId })
@@ -40,7 +40,7 @@ transactionsRouter.get("/:transactionId", async (req, res) => {
 })
 
 // edit transaction route 
-transactionsRouter.put("/edit", async (req, res) => {
+transactionsRouter.put("/edit", doAuthMiddleware, async (req, res) => {
     try {
         const transactioUpdateInfo = req.body
         console.log("transactioUpdateInfo", transactioUpdateInfo);
