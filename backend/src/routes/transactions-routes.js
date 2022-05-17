@@ -28,7 +28,7 @@ transactionsRouter.post("/add",
     }
 
 )
-//mit auth ?
+
 transactionsRouter.get("/:transactionId", doAuthMiddleware, async (req, res) => {
     try {
         const transactionId = req.params.transactionId

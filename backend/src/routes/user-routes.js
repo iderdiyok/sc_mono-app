@@ -22,6 +22,7 @@ userRouter.post("/register", async (req, res) => {
     try {
         const userInfo = req.body
         const user = await UserService.registerUser(userInfo)
+        console.log("userInfo", userInfo);
         res.status(201).json(user)
     } catch (error) {
         console.log(error)
@@ -50,26 +51,26 @@ userRouter.post("/login", async (req, res) => {
 
 userRouter.get("/show-wallet",
     doAuthMiddleware,
-    async( req, res ) => {
+    async (req, res) => {
         try {
             const userId = req.userClaims.sub
             const userWallet = await UserService.showWallet({ userId })
             res.status(200).json(userWallet)
         } catch (err) {
-            res.status(500).json({ err: {message: err ? err.message: "User not found..."}})
+            res.status(500).json({ err: { message: err ? err.message : "User not found..." } })
         }
     }
 )
 userRouter.get("/show-wallet-in-period",
     doAuthMiddleware,
-    async( req, res ) => {
+    async (req, res) => {
         try {
             const userId = req.userClaims.sub
             const startEndTimeStamps = req.body.startEndTimeStamps
             const userWallet = await UserService.ShowTransactionsInPeriod({ userId, startEndTimeStamps })
             res.status(200).json(userWallet)
         } catch (err) {
-            res.status(500).json({ err: {message: err ? err.message: "User not found..."}})
+            res.status(500).json({ err: { message: err ? err.message : "User not found..." } })
         }
     }
 )

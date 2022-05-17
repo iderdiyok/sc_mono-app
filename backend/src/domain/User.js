@@ -2,7 +2,7 @@ const { createRandomSalt, createPasswordHash } = require("../utils/hash")
 
 function makeUser({
     _id,
-    userName,
+    name,
     email,
     avatar,
     totalBalance,
@@ -10,8 +10,8 @@ function makeUser({
     passwordSalt
 
 }) {
-    if (!userName) {
-        throw new Error("username must exist.")
+    if (!name) {
+        throw new Error("name must exist.")
     }
     if (!email) {
         throw new Error("E-Mail must exist.")
@@ -22,7 +22,7 @@ function makeUser({
     const _pwSalt = passwordSalt || createRandomSalt()
 
     return {
-        userName,
+        name,
         email,
         avatar: avatar || "https://www.clipartmax.com/png/small/296-2969961_no-image-user-profile-icon.png",
         totalBalance: totalBalance || 0,
@@ -32,4 +32,4 @@ function makeUser({
     }
 }
 module.exports = { makeUser }
-//User -> _id, userName, email, passwordHash, passwordSalt, avatar, totalBalance:
+//User -> _id, name, email, passwordHash, passwordSalt, avatar, totalBalance:

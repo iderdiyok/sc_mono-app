@@ -30,11 +30,11 @@ Transaction -> _Id, name, income, amount, date, time, picture:
 
 
 User Collection:
-User -> _id, userName, email, passwordHash, passwordSalt, avatar, totalBalance:
+User -> _id, name, email, passwordHash, passwordSalt, avatar, totalBalance:
 
 {
   "_id": 256163322331,
-  "userName": "Max Mustermann",
+  "name": "Max Mustermann",
   "email": "max@muster.de",
   "passwordSalt": "dagfadsfadfadf43535516asdfasdfas181", 
   "passwordHash": "dagfadsfeefl33+33pofgkmoiasdjfasdfadsf6asdfasdfasf16816168181", 
