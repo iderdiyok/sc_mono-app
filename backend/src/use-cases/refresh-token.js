@@ -13,7 +13,7 @@ async function refreshUserToken({ refreshToken }) {
         }
 
         const userId = tokenPayload.sub
-        const foundUser = await UserDAO.findUserById(Id)
+        const foundUser = await UserDAO.findUserById(userId)
         if (!foundUser) {
             throw new Error("Not found.")
         }

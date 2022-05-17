@@ -6,6 +6,7 @@ const { createPasswordHash, createToken } = require("../utils/hash");
 async function loginUser({ email, password }) {
     const invalidLoginMessage = "Invalid Login"
     const foundUser = await UserDAO.findUserByEmail(email)
+    
     if (!foundUser) {
         throw new Error("user not found")
     }

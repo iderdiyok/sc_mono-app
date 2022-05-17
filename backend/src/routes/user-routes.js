@@ -49,6 +49,17 @@ userRouter.post("/login", async (req, res) => {
     }
 })
 
+userRouter.get("/myProfileInfo", doAuthMiddleware, async (req, res) => {
+    try {
+        const userId = req.userClaims.sub // an den token wird erkannt, um welchen user es sich handelt...
+        const allUsers = await UserService.showProfileInfo({ userId })
+        res.status(200).json(allUsers)
+    } catch (err) {
+        console.log(err)
+        res.status(500).json({ err: { message: err.message } })
+    }
+})
+
 userRouter.get("/show-wallet",
     doAuthMiddleware,
     async (req, res) => {
