@@ -6,6 +6,7 @@ const DotsIcon = () => {
       height="7"
       viewBox="0 0 27 7"
       fill="white"
+      className="dots"
     >
       <circle id="Ellipse_2" data-name="Ellipse 2" cx="3.5" cy="3.5" r="3.5" />
       <circle

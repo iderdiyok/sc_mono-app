@@ -7,3 +7,6 @@
     background-position: top;
 }
 
+.home .dots{
+    visibility: hidden;
+}
