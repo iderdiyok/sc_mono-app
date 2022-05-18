@@ -133,3 +133,8 @@ input[type="email"] {
   margin-top: 10px;
   font-size: 16px;
 }
+.red{color: var(--red);}
+.green{color: var(--green);}
+.mb-5{
+  margin-bottom: 15px;
+}

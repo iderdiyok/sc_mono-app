@@ -13,8 +13,8 @@ const TransactionHistoryList = (props) => {
       { props.profileWallet && Array.isArray(props.profileWallet.transactions)
         ?        
         props.profileWallet.transactions.map(t => 
-          <article className="list-body">
-          <Link to="/ausgaben-details">
+          <article key={t._id} className="list-body">
+          <Link to={"/transactions-details/" + t._id}>
             <div className="list-item">
               <div className="list-icon-name">
                 <div className="icon-list center">
@@ -33,25 +33,7 @@ const TransactionHistoryList = (props) => {
         </article>
         )
        :
-       <article>
-      <Link to="/ausgaben-details">
-        <div className="list-item">
-          <div className="list-icon-name">
-            <div className="icon-list center">
-              <h3>C</h3>
-            </div>
-            <div>
-              <h5>Claire Jovalski</h5>
-              <p>25.05.2022</p>
-            </div>
-          </div>
-          <div className="betrag">
-            <h4>- 15,40 €</h4>
-          </div>
-        </div>
-        </Link>
-     
-      </article>   
+       <h1>Loading...</h1>  
       }
         
       

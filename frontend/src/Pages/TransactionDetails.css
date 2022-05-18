@@ -33,9 +33,6 @@
   margin-bottom: 10px;
 }
 
-.red {
-  color: var(--red);
-}
 
 /*Details*/
 .trans-detail-wrapper-expense .wrapper-inner {
@@ -92,4 +89,16 @@
 .trans-detail-wrapper-expense img {
   border-radius: 20px;
   margin-bottom: 30px;
+}
+.red-expense{
+  background-color: rgba(255, 0, 0, 0.103);
+  color: var(--red);
+  padding: 5px 10px;
+  border-radius: 20px;
+  }
+.green-income{
+  background-color: #00b4961c;
+  color: var(--green);
+  padding: 5px 10px;
+  border-radius: 20px;
 }

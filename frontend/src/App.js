@@ -8,10 +8,9 @@ import Home from "./Pages/Home";
 import Profil from "./Pages/Profile";
 import Wallet from "./Pages/Wallet";
 import Statistik from "./Pages/Statistik";
-import TransactionDetailsExpense from "./Pages/TransactionDetailsExpense";
-import TransactionDetailsIncome from "./Pages/TransactionDetailsIncome";
 import AddExpense from "./Pages/AddExpense";
 import AddIncome from "./Pages/AddIncome";
+import TransactionDetails from "./Pages/TransactionDetails";
 import { useState } from "react";
 import AuthRequired from "./Components/AuthRequired";
 
@@ -40,17 +39,17 @@ function App() {
           <Route path="/wallet" element={<Wallet />} />
           <Route path="/statistik" element={<Statistik />} />
 
+          {/* <Route
+            path="/transactions-details/:transactionId"
+            element={<TransactionDetailsIncome token={token}/>}
+          /> */}
           <Route
-            path="/einnahmen-details"
-            element={<TransactionDetailsIncome />}
-          />
-          <Route
-            path="/ausgaben-details"
-            element={<TransactionDetailsExpense />}
+            path="/transactions-details/:transactionId"
+            element={<TransactionDetails token={token}/>}
           />
 
-          <Route path="/ausgabe" element={<AddExpense token={token} income={false}/>} />
-          <Route path="/einnahme" element={<AddIncome token={token} income={true}/>} />
+          <Route path="/ausgabe" element={<AddExpense token={token}/>} />
+          <Route path="/einnahme" element={<AddIncome token={token}/>} />
         </Routes>
       </div>
   );

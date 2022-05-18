@@ -19,7 +19,6 @@ export const showWalletOfMonths = (token) => {
         .then(response => response.json())
         .then(walletInfoResult => setWalletInfo(walletInfoResult))
     }, [token])
-
-    console.log("walletInfo: ", walletInfo);
+    
     return walletInfo
 }

@@ -1,8 +1,26 @@
 import "./TransactionDetailsIncome.css";
 import HeaderLine from "../Components/HeaderLine";
 import Navbar from "../Components/Navbar";
+import { useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { apiUrl } from "../api/api";
 
-const TransactionDetailsExpense = () => {
+const TransactionDetailsExpense = (props) => {
+  const { transactionId } = useParams()
+  const [transaction, setPost] = useState()
+
+  useEffect(() => {
+      fetch(apiUrl + "/api/transactions/" + transactionId, {
+          headers: {
+              token: "JWT " + props.token
+          }
+      })
+      .then(response => response.json())
+      .then(transactionResult => {
+          setPost(transactionResult.foundTransaction)
+      })
+  }, [props.token, transactionId])
+
   return (
     <main className="trans-detail-wrapper-Income">
       <section className="header-section">

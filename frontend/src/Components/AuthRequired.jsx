@@ -22,7 +22,6 @@ const AuthRequired = (props) => {
         .then(response => response.json())
         .then((data) => {
             setLoading(false)
-            console.log(data)
             if(data.token) {
                 props.setToken(data.token)
             }
