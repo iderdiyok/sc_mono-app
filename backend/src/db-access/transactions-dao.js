@@ -34,6 +34,7 @@ async function updateTransaction(transactionId, transactionObject) {
     const db = await getDB()
     return db.collection("transactions").updateOne({ _id: new ObjectId(transactionId) }, { $set: transactionObject })
 }
+
 module.exports = {
     insertTransaction,
     findTransactionById,

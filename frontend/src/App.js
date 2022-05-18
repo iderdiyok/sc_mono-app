@@ -49,8 +49,8 @@ function App() {
             element={<TransactionDetailsExpense />}
           />
 
-          <Route path="/ausgabe" element={<AddExpense />} />
-          <Route path="/einnahme" element={<AddIncome />} />
+          <Route path="/ausgabe" element={<AddExpense token={token} income={false}/>} />
+          <Route path="/einnahme" element={<AddIncome token={token} income={true}/>} />
         </Routes>
       </div>
   );

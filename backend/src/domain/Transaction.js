@@ -3,7 +3,7 @@ function makeTransaction({
     name,
     income, 
     amount,
-    created_at = new Date().getTime(),
+    created_at,
     userId
 }) {
     if(!name){
