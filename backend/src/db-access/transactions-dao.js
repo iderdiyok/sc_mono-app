@@ -22,7 +22,7 @@ async function findAllTransactionsOfUserWithSpecifiedPeriod(userId, getTimeStamp
             $lt: getTimeStamps.end
             }}
         ]
-    }).toArray()
+    }).sort( { created_at: -1 } ).toArray()
     return allTransactions
 }
 async function insertTransaction(transaction) {
