@@ -122,6 +122,7 @@ input[type="text"],
 input[type="password"],
 input[type="date"], 
 input[type="number"], 
+input[type="datetime-local"], 
 input[type="email"] {
   height: 45px;
   width: 100%;
