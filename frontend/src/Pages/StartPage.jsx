@@ -13,7 +13,7 @@ const StartPage = () => {
 
       <p>
         Du hast noch keinen Account?{" "}
-        <Link to="/regestrieren">Hier Regestrieren!</Link>
+        <Link to="/registrieren">Hier Registrieren!</Link>
       </p>
     </main>
   );

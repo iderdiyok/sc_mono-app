@@ -4,13 +4,13 @@ import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 
 const TransactionHistoryList = () => {
-  const [history, setHistory] = useState([]);
+  // const [history, setHistory] = useState([]);
 
-  useEffect(() => {
-    fetch("http://localhost:9000/api/transactions/")
-      .then((response) => response.json())
-      .then((TransactData) => setHistory(TransactData));
-  }, []);
+  // useEffect(() => {
+  //   fetch("http://localhost:9000/api/transactions/")
+  //     .then((response) => response.json())
+  //     .then((TransactData) => setHistory(TransactData));
+  // }, []);
 
 
   return (

@@ -12,6 +12,7 @@ async function findAllTransactionsOfUser(userId) {
     return allTransactions
 }
 async function findAllTransactionsOfUserWithSpecifiedPeriod(userId, getTimeStamps){
+    console.log("getTimeStamps", getTimeStamps);
     const db = await getDB()
     const allTransactions = await db.collection("transactions").find({
         $and:[

@@ -3,10 +3,9 @@ const multer = require("multer")
 const { doAuthMiddleware } = require("../auth/doAuthMiddleware")
 const { UserService } = require("../use-cases")
 const { imageBufferToBase64 } = require("../utils/hash")
-
+const { TimePeriodService } = require("../use-cases/functions/periods")
 const pictureUploadMiddleware = multer().single("avatar")
 const userRouter = express.Router()
-
 
 userRouter.get("/allUsers", async (_, res) => {
     try {
@@ -72,12 +71,18 @@ userRouter.get("/show-wallet",
         }
     }
 )
-userRouter.get("/show-wallet-in-period",
+userRouter.get("/show-wallet-in-period/:period",
     doAuthMiddleware,
     async (req, res) => {
         try {
+            const period = req.params.period
             const userId = req.userClaims.sub
-            const startEndTimeStamps = req.body.startEndTimeStamps
+            var startEndTimeStamps = null
+            console.log("period: ", period);
+            if (period === "month") {
+                startEndTimeStamps = TimePeriodService.getMonth()
+            }
+            console.log("startEndTimeStamps: ", startEndTimeStamps);
             const userWallet = await UserService.ShowTransactionsInPeriod({ userId, startEndTimeStamps })
             res.status(200).json(userWallet)
         } catch (err) {
