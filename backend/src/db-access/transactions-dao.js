@@ -8,7 +8,7 @@ async function findTransactionById(transactionId) {
 }
 async function findAllTransactionsOfUser(userId) {
     const db = await getDB()
-    const allTransactions = await db.collection("transactions").find({ userId: userId }).toArray()
+    const allTransactions = await db.collection("transactions").find({ userId: userId }).sort( { created_at: -1 } ).toArray()
     return allTransactions
 }
 async function findAllTransactionsOfUserWithSpecifiedPeriod(userId, getTimeStamps){

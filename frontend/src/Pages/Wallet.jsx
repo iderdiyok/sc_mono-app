@@ -9,7 +9,7 @@ import SendIcon from "../Components/Icons_Component/SendIcon";
 import QRIcon from "../Components/Icons_Component/QrCodeIcon";
 import HeaderLine from "../Components/HeaderLine";
 
-const Wallet = () => {
+const Wallet = (props) => {
   return (
     <main className="wallet">
       <section className="header-section">
@@ -18,7 +18,7 @@ const Wallet = () => {
       <div className="wrapper-inner">
         <section className="total-balance">
           <p>Totaler Beitrag</p>
-          <h3>2540,00 €</h3>
+          <h3>{props.profileWallet ? props.profileWallet.totalBalance.toFixed(2) : 0} €</h3>
           <article>
             <div>
               <div className="icon-wrapper center">
@@ -44,7 +44,7 @@ const Wallet = () => {
           </article>
         </section>
         <section>
-            <TransactionHistoryList />
+            <TransactionHistoryList profileWallet={props.profileWallet}/>
         </section>
       </div>
 

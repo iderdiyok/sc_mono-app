@@ -13,6 +13,7 @@ import AddIncome from "./Pages/AddIncome";
 import TransactionDetails from "./Pages/TransactionDetails";
 import { useState } from "react";
 import AuthRequired from "./Components/AuthRequired";
+import { showWallet } from "./hooks/showWallet";
 
 function App() {
   const [token, setToken] = useState(null)
@@ -22,6 +23,8 @@ function App() {
     setToken(token)
     navigate("/home")
   }
+
+  const profileWallet = showWallet(token)
   return (
       <div className="App">
         <Routes>
@@ -36,7 +39,13 @@ function App() {
             } 
           />
           <Route path="/profil" element={<Profil />} />
-          <Route path="/wallet" element={<Wallet />} />
+          <Route path="/wallet" 
+            element={
+              <AuthRequired token={token} setToken={setToken}>
+                <Wallet profileWallet={profileWallet}/>
+              </AuthRequired>
+            } 
+          />
           <Route path="/statistik" element={<Statistik />} />
 
           {/* <Route
