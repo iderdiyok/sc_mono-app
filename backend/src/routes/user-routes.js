@@ -51,7 +51,10 @@ userRouter.post("/login", async (req, res) => {
         res.status(500).json({ error: { message: error ? error.message : "Unknown error while logging in." } })
     }
 })
-
+userRouter.get("/logout", async (req, res) => {
+    req.session.refreshToken = null
+    res.status(200).json({})
+})
 userRouter.get("/myProfileInfo", doAuthMiddleware, async (req, res) => {
     try {
         const userId = req.userClaims.sub // an den token wird erkannt, um welchen user es sich handelt...

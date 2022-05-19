@@ -1,6 +1,6 @@
 import "./Profile.css";
 
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import Navbar from "../Components/Navbar";
 import HeaderLine from "../Components/HeaderLine";
@@ -10,17 +10,28 @@ import LetterIcon from "../Components/Icons_Component/LetterIcon";
 import SecurityIcon from "../Components/Icons_Component/LoginAndSecurityIcon";
 import DataAndPrivacyIcon from "../Components/Icons_Component/DataAndPrivacyIcon";
 import LogoutIcon from "../Components/Icons_Component/LogoutIcon";
+import { apiUrl } from "../api/api";
 
-const Profile = () => {
+const Profile = (props) => {
+  const navigate = useNavigate()
+
+  const logout = () => {
+        fetch(apiUrl + "/api/users/logout",
+          {credentials: "include"}
+        )
+        
+        props.setToken(null)
+        navigate("/")
+    }
   return (
     <main className="profile">
       <HeaderLine title="Profil" />
       <section>
         <div className="center avatar-img">
-          <img src="../img/Man_background.png" alt="UserPhoto" />
+          <img src={props.profileWallet.avatar} alt="UserPhoto" />
         </div>
-        <h3>Vorname Nachname</h3>
-        <h5>vorname@gmail.com</h5>
+        <h3>{props.profileWallet.name}</h3>
+        <h5>{props.profileWallet.email}</h5>
       </section>
       <section className="list-profil">
         <ul>
@@ -58,13 +69,11 @@ const Profile = () => {
               Datenschutz
             </Link>
           </li>
-          <li>
-            <Link to="/login">
+          <li onClick={logout}>
               <div className="icon-wrapper">
                 <LogoutIcon />
               </div>
               Logout
-            </Link>
           </li>
         </ul>
       </section>
