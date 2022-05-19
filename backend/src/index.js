@@ -8,14 +8,8 @@ const { transactionsRouter } = require("./routes/transactions-routes")
 
 const PORT = process.env.PORT || 9000
 const app = express()
-<<<<<<< HEAD
 app.use(cors({ origin: [process.env.FRONTEND_URL], credentials: true }))
 // app.use(cors())
-=======
-// app.use(cors({ origin: true, credentials: true }))
-app.use(cors({ origin: [process.env.FRONTEND_URL], credentials: true }))
-app.use(cors())
->>>>>>> 5bcd51b14738e386ab2cb815e14bef3e302835c3
 app.use(morgan("dev"))
 app.use(express.json())
 
