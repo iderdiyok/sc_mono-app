@@ -12,6 +12,7 @@ async function findAllTransactionsOfUser(userId) {
     return allTransactions
 }
 async function findAllTransactionsOfUserWithSpecifiedPeriod(userId, getTimeStamps){
+    console.log("getTimeStamps", getTimeStamps);
     const db = await getDB()
     const allTransactions = await db.collection("transactions").find({
         $and:[
@@ -21,7 +22,7 @@ async function findAllTransactionsOfUserWithSpecifiedPeriod(userId, getTimeStamp
             $lt: getTimeStamps.end
             }}
         ]
-    }).toArray()
+    }).sort( { created_at: -1 } ).toArray()
     return allTransactions
 }
 async function insertTransaction(transaction) {
@@ -33,6 +34,7 @@ async function updateTransaction(transactionId, transactionObject) {
     const db = await getDB()
     return db.collection("transactions").updateOne({ _id: new ObjectId(transactionId) }, { $set: transactionObject })
 }
+
 module.exports = {
     insertTransaction,
     findTransactionById,

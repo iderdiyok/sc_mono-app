@@ -122,6 +122,7 @@ input[type="text"],
 input[type="password"],
 input[type="date"], 
 input[type="number"], 
+input[type="datetime-local"], 
 input[type="email"] {
   height: 45px;
   width: 100%;
@@ -131,4 +132,9 @@ input[type="email"] {
   color: var(--inputtext);
   margin-top: 10px;
   font-size: 16px;
+}
+.red{color: var(--red);}
+.green{color: var(--green);}
+.mb-5{
+  margin-bottom: 15px;
 }

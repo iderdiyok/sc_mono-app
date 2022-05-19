@@ -5,6 +5,7 @@ const { refreshUserToken } = require("./refresh-token")
 const { registerUser } = require("./register-user")
 const { showWallet } = require("./show-wallet")
 const { ShowTransactionsInPeriod } = require("./show-transactions-in-period")
+const { showProfileInfo } = require("./show-user")
 
 //TransactionService
 const { addTransaction } = require("./add-transaction")
@@ -19,7 +20,8 @@ const UserService = {
     loginUser,
     refreshUserToken,
     showWallet,
-    ShowTransactionsInPeriod
+    ShowTransactionsInPeriod,
+    showProfileInfo
 }
 
 const TransactionService = {

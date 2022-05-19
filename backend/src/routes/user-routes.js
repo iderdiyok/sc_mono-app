@@ -9,6 +9,9 @@ const upload = multer()
 const pictureUploadMiddleware = upload.single("avatar")
 const userRouter = express.Router()
 
+const { TimePeriodService } = require("../use-cases/functions/periods")
+
+
 userRouter.get("/allUsers", async (_, res) => {
     try {
         const allUsers = await UserService.listAllUsers()
@@ -49,6 +52,17 @@ userRouter.post("/login", async (req, res) => {
     }
 })
 
+userRouter.get("/myProfileInfo", doAuthMiddleware, async (req, res) => {
+    try {
+        const userId = req.userClaims.sub // an den token wird erkannt, um welchen user es sich handelt...
+        const allUsers = await UserService.showProfileInfo({ userId })
+        res.status(200).json(allUsers)
+    } catch (err) {
+        console.log(err)
+        res.status(500).json({ err: { message: err.message } })
+    }
+})
+
 userRouter.get("/show-wallet",
     doAuthMiddleware,
     async (req, res) => {
@@ -61,12 +75,18 @@ userRouter.get("/show-wallet",
         }
     }
 )
-userRouter.get("/show-wallet-in-period",
+userRouter.get("/show-wallet-in-period/:period",
     doAuthMiddleware,
     async (req, res) => {
         try {
+            const period = req.params.period
             const userId = req.userClaims.sub
-            const startEndTimeStamps = req.body.startEndTimeStamps
+            var startEndTimeStamps = null
+            console.log("period: ", period);
+            if (period === "month") {
+                startEndTimeStamps = TimePeriodService.getMonth()
+            }
+            console.log("startEndTimeStamps: ", startEndTimeStamps);
             const userWallet = await UserService.ShowTransactionsInPeriod({ userId, startEndTimeStamps })
             res.status(200).json(userWallet)
         } catch (err) {
