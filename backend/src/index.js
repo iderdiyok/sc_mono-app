@@ -8,14 +8,14 @@ const { transactionsRouter } = require("./routes/transactions-routes")
 
 const PORT = process.env.PORT || 9000
 const app = express()
-// app.use(cors({ origin: [process.env.FRONTEND_URL], credentials: true }))
+// app.use(cors({ origin: true, credentials: true }))
 app.use(cors())
 app.use(morgan("dev"))
 app.use(express.json())
 
 const oneDayInMs = 24 * 60 * 60 * 1000;
 const isLocalHost = process.env.FRONTEND_URL === 'http://localhost:3000';
-app.set('trust proxy', 1); // trust first proxy
+app.set('trust proxy', 1);
 
 app.use(
     cookieSession({

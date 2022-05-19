@@ -1,44 +1,48 @@
 import "./SingUp.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+
 
 import AddButtonIcon from "../Components/AddPhotoBtn";
 import { useState } from "react";
 import { apiUrl } from "../api/api";
+import PlusIcon from "../Components/Icons_Component/PlusIcon";
 
 const SingUp = () => {
   const [name, setName] = useState("")
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
+  const [avatar, setAvatar] = useState()
   const [error, setError] = useState("")
   const [success, setSuccess] = useState("")
 
-  const register = async (event) => {
-    event.preventDefault()
+  const navigate = useNavigate()
 
-    try {
-      const response = await fetch(apiUrl + "/api/users/register", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify({ name, email, password })
+  const register = (event) => {
+    event.preventDefault()
+    const formData = new FormData()
+    formData.set("name", name)
+    formData.set("email", email)
+    formData.set("password", password)
+    formData.set("avatar", avatar)
+    fetch(apiUrl + "/api/users/register", {
+      method: "POST",
+
+      body: formData
+    })
+      .then((response) => response.json())
+      .then(result => {
+        if (result.err) {
+          console.log("error in signup fetch react", result.error);
+          setError(result.err)
+        } else if (result.acknowledged === true && result.insertedId) {
+          setSuccess("account created successfuly, please login")
+          setError("")
+          setName("")
+          setEmail("")
+          setPassword("")
+          navigate("/login")
+        }
       })
-      const result = await response.json
-      console.log("result", result);
-      if (result.error) {
-        console.log("error in signup fetch react", result.error);
-        setError(result.error)
-      } else if (result.acknowledged === true && result.insertedId) {
-        setSuccess("account created successfuly, please login")
-        setError("")
-        setName("")
-        setEmail("")
-        setPassword("")
-      }
-    } catch (error) {
-      console.log("error ", error);
-      setError("problem with accout registretion")
-    }
   }
 
   return (
@@ -60,7 +64,18 @@ const SingUp = () => {
           </label>
 
           {/* upload photo */}
-          <AddButtonIcon label="User Foto" text="Foto Hinzufügen" />
+          {/* <AddButtonIcon label="User Foto" text="Foto Hinzufügen" onChange={(e) => setAvatar(e.target.files[0])} /> */}
+          <div className="add-btn-file">
+            <label>
+              {" "}
+              User Foto
+              <div className="add-photo center">
+                <PlusIcon />
+                <p>Foto Hinzufügen</p>
+                <input type="file" onChange={(e) => setAvatar(e.target.files[0])} />
+              </div>
+            </label>
+          </div>
 
           <button className="btn-blue" onClick={register} type="submit">
             Registrieren
