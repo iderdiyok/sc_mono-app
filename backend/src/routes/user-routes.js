@@ -48,7 +48,7 @@ userRouter.post("/login", async (req, res) => {
         res.status(200).json(result)
     } catch (error) {
         console.log(error);
-        res.status(500).json({ err: { message: err ? err.message : "Unknown error while logging in." } })
+        res.status(500).json({ error: { message: error ? error.message : "Unknown error while logging in." } })
     }
 })
 

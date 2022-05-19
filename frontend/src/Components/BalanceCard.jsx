@@ -11,7 +11,7 @@ const BalanceCard = (props) => {
       <article className="card-wrapper-header">
         <div>
           <h5>Totales Guthaben</h5>
-          <h2>{props.profileWallet ? props.profileWallet.totalBalance : 0} €</h2>
+          <h2>{props.profileWallet ? props.profileWallet.totalBalance.toFixed(2) : 0} €</h2>
         </div>
         <div>
           <DotsIcon />
