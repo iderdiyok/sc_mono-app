@@ -15,9 +15,15 @@ const Statistik = () => {
 const [userData, setUserData] = useState({
   labels: UserData.map((data) => data.year),
   datasets: [{
-    label: "Einnahmen und ausgaben",
+    label: "Einnahmen und Ausgaben",
     data: UserData.map((data) => data.userGain),
-
+    backgroundColor: [
+      '#2b47fc',
+    ],
+    borderColor: [
+      '#2b47fc',
+  ],
+  borderWidth: 2
   }]
 })
 
