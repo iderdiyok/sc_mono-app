@@ -78,11 +78,9 @@ userRouter.get("/show-wallet-in-period/:period",
             const period = req.params.period
             const userId = req.userClaims.sub
             var startEndTimeStamps = null
-            console.log("period: ", period);
             if (period === "month") {
                 startEndTimeStamps = TimePeriodService.getMonth()
             }
-            console.log("startEndTimeStamps: ", startEndTimeStamps);
             const userWallet = await UserService.ShowTransactionsInPeriod({ userId, startEndTimeStamps })
             res.status(200).json(userWallet)
         } catch (err) {

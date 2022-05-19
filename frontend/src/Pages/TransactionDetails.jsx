@@ -4,6 +4,7 @@ import Navbar from "../Components/Navbar";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { apiUrl } from "../api/api";
+import Loading from "../Components/Loading";
 
 const TransactionDetails = (props) => {
   const { transactionId } = useParams()
@@ -48,10 +49,10 @@ const TransactionDetails = (props) => {
                   <p>Name</p> <h5>{transaction.name}</h5>
                 </li>
                 <li>
-                  <p>Zeit</p> <h5>{new Date(transaction.created_at).toLocaleTimeString()}</h5>
+                  <p>Zeit</p> <h5>{new Date(transaction.created_at).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}</h5>
                 </li>
                 <li>
-                  <p>Datum</p> <h5>{new Date(transaction.created_at).toLocaleDateString()}</h5>
+                  <p>Datum</p> <h5>{new Date(transaction.created_at).toLocaleDateString('de-DE', { year: 'numeric', month: '2-digit', day: '2-digit' })}</h5>
                 </li>
                 <hr />
                 <li>
@@ -70,7 +71,7 @@ const TransactionDetails = (props) => {
           <button>Bearbeiten</button>
         </div>
       : 
-        <h1>Loading...</h1>
+        <Loading />
       }
       <Navbar/>
     </main>

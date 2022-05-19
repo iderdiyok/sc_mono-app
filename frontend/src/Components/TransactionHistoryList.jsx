@@ -1,6 +1,7 @@
 import "./TransactionHistoryList.css";
 
 import { Link } from "react-router-dom";
+import Loading from "./Loading";
 
 const TransactionHistoryList = (props) => {
 
@@ -22,7 +23,7 @@ const TransactionHistoryList = (props) => {
                 </div>
                 <div>
                   <h5>{t.name}</h5>
-                  <p>{new Date(t.created_at).toLocaleDateString()}</p>
+                  <p>{new Date(t.created_at).toLocaleDateString('de-DE', { year: 'numeric', month: '2-digit', day: '2-digit' })}</p>
                 </div>
               </div>
               <div className="betrag">
@@ -33,7 +34,7 @@ const TransactionHistoryList = (props) => {
         </article>
         )
        :
-       <h1>Loading...</h1>  
+        <Loading />
       }
         
       
