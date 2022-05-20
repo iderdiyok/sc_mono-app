@@ -86,7 +86,7 @@ userRouter.get("/show-wallet-in-period/:period",
             const userId = req.userClaims.sub
             var startEndTimeStamps = null
             if (period === "month") {
-                startEndTimeStamps = TimePeriodService.getMonth()
+                startEndTimeStamps = TimePeriodService.getMonthStartAndEndTime()
             }
             const userWallet = await UserService.ShowTransactionsInPeriod({ userId, startEndTimeStamps })
             res.status(200).json(userWallet)
@@ -95,7 +95,20 @@ userRouter.get("/show-wallet-in-period/:period",
         }
     }
 )
+userRouter.get("/statistics/:showoption/:timeoption", doAuthMiddleware, 
+    async (req, res) => {
+        try {
+            const timeOption = req.params.timeoption
+            const showOption = req.params.showoption
+            const userId = req.userClaims.sub
 
+            const result = await UserService.getStatistics({userId, showOption, timeOption})
+            res.status(200).json(result)
+        } catch (error) {
+            console.log(error);
+        }
+    }
+)
 userRouter.post("/refreshtoken", async (req, res) => {
     try {
         const result = await UserService.refreshUserToken({

@@ -1,0 +1,130 @@
+
+
+datenbank
+
+transactions..
+
+[
+    { income: false / true, amount: 50, userId: "64783982", createdAt: 16283923000 },
+    { income: false / true, amount: 50, userId: "64783982", createdAt: 16283923000 },
+    { income: false / true, amount: 50, userId: "64783982", createdAt: 16283923000 },
+    { income: false / true, amount: 50, userId: "64783982", createdAt: 16283923000 },
+]
+
+
+
+Frontend
+
+Week | Month | Year
+
+current...
+Week -> Week1, Week2, Week3, Week4
+Month -> Jan, Feb, ..., Nov,  Dez
+Year -> 2021, 2022, 2023
+
+current...
+Week -> Mo, Di, Mi, Do, Fr, Sa, So
+Month -> 1, 2, 3, ..., 26, 27, 28 | 29 | 30 | 31
+Year -> Jan, Feb, ..., Nov,  Dez
+
+custom 1.feb 2021, bis inkl. 31.feb 2021
+custom option --> All-Time
+
+
+timeOption: "week" | "month" | "year"
+showOption: "income" | "expense"
+
+Schritt 1 -> grundarray
+[
+    { label: "Mo", value: 0 },
+    ...
+    { label: "So", value: 0 },
+]
+
+7 Zeitspannen
+
+Mo -> Mo diese Woche 00:00 bis Dienstag 00:000
+Di -> Dienstag 00:00 bis Mittwoch 00:00
+...
+
+So -> So 00:00 bis Montag nächste Woche 00:00
+
+async function getWeekStatistics({ userId, showOption }) {
+    const {start, end} = getWeekTime()
+    const ONE_DAY_IN_MS = 1000 * 60 * 60 * 24 // week -> one_day, month -> one_day, year -> one_month
+
+    const grundArray = [
+        { label: "Mo", start: start, end: start + ONE_DAY_IN_MS,  },
+        { label: "Di", start: start + ONE_DAY_IN_MS, end: start + ONE_DAY_IN_MS * 2 },
+        { label: "Mi", start: start + ONE_DAY_IN_MS * 2, end: start + ONE_DAY_IN_MS * 3 },
+        { label: "Do", start: start + ONE_DAY_IN_MS * 3, end: start + ONE_DAY_IN_MS * 4 },
+        { label: "Fr", start: start + ONE_DAY_IN_MS * 4, end: start + ONE_DAY_IN_MS * 5 },
+        { label: "Sa", start: start + ONE_DAY_IN_MS * 5, end: start + ONE_DAY_IN_MS * 6 },
+        { label: "So", start: start + ONE_DAY_IN_MS * 6, end: end } // end ist genau: start + ONE_DAY_IN_MS * 7
+    ]
+
+    const allTransactionsOfWeek = await TransactionsDAO.findByStartEnd(userId, start, end) // gleich für Month / Year nur andere start und end werte...
+
+    const resultArrayWeek = grundArray.map(dayObject => {
+        // schritt 1 -> transactionen aus allTransactionsOfWeek für den Tag dayObject (dayObject.start bis dayObject.end) holen
+        const transactionsOfDay = allTransactionsOfWeek.filter(t => t.createdAt >= dayObject.start && t.createdAt < dayObject.end)
+        
+        // schitt 2 -> value dieser transactionen zusammenrechnen (alle incomes - alle expensen)
+        return {
+            label: dayObject.label,
+            value: showOption === "income" 
+                ? calculateIncome(transactionsOfDay)
+                : calculateExpenses(transactionsOfDay)
+        }
+    })
+
+    return resultArrayWeek // [ { label: "Mo", value: 700 }, { label: "Di", value: 100 }, ...]
+}
+
+async funciton getMonthStatistics({ userId, showOption }) {
+    const { start, end } = getMonthTimes() // 28 Tage
+
+    const grundArray = [
+        { label: "1", start, end: start + one_day},
+
+        { lable: "31", start: start + one_day * 30, end }
+    ].filter(day => day.start > day.end)
+
+    // gleiche logik wie vorher...
+}
+
+
+async function getStatistics({ userId, timeOption, showOption,}) {
+    if(timeOption === "month") {
+        return getMonthStatistics({ userId, showOption })
+    } else if (timeOption === "year") {
+        return getYearStatistics({ userId, showOption })
+    } else {
+        return getWeekStatistics({ userId, showOption })
+    }
+}
+
+functions calculateIncome(transactions) {
+    const income = transactions.filter(t => t.income === true)
+    .map(t => t.amount)
+    .reduce((sum, amount) => sum + amount, 0)
+
+    return income
+}
+
+functions calculateExpense(transactions) {
+    const expense = transactions.filter(t => t.income === false)
+    .map(t => t.amount)
+    .reduce((sum, amount) => sum + amount, 0)
+
+    return expense
+}
+
+function fetchStatistics() {
+    fetch(apiUrl + "/api/users/statistics")
+    .then(res => res.json())
+    .then(resultArray => setStatisticsArray(resultArray))
+}
+
+onChange dropwdown für income expeense  -> fetchStatistics
+onChange week, month, year  -> fetchStatistics

@@ -52,7 +52,13 @@ function App() {
               </AuthRequired>
             } 
           />
-          <Route path="/statistik" element={<Statistik />} />
+          <Route path="/statistik" 
+            element={
+              <AuthRequired token={token} setToken={setToken}>
+                <Statistik token={token}/>
+              </AuthRequired>
+            } 
+          />
 
           <Route path="/transactions-details/:transactionId"
             element={
