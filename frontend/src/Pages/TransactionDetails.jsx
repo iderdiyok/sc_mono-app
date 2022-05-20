@@ -11,14 +11,14 @@ const TransactionDetails = (props) => {
   const [transaction, setPost] = useState()
 
   useEffect(() => {
-      fetch(apiUrl + "/api/transactions/" + transactionId, {
-          headers: {
-              token: "JWT " + props.token
-          }
-      })
+    fetch(apiUrl + "/api/transactions/" + transactionId, {
+      headers: {
+        token: "JWT " + props.token
+      }
+    })
       .then(response => response.json())
       .then(transactionResult => {
-          setPost(transactionResult.foundTransaction)
+        setPost(transactionResult.foundTransaction)
       })
   }, [props.token, transactionId])
 
@@ -27,8 +27,8 @@ const TransactionDetails = (props) => {
       <section className="header-section">
         <HeaderLine title="Transaction Details" />
       </section>
-      {transaction 
-      ? 
+      {transaction
+        ?
         <div className="wrapper-inner">
           <section className="top">
             <div className="center">
@@ -49,7 +49,7 @@ const TransactionDetails = (props) => {
                   <p>Name</p> <h5>{transaction.name}</h5>
                 </li>
                 <li>
-                  <p>Zeit</p> <h5>{new Date(transaction.created_at).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}</h5>
+                  <p>Zeit</p> <h5>{new Date(transaction.created_at).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</h5>
                 </li>
                 <li>
                   <p>Datum</p> <h5>{new Date(transaction.created_at).toLocaleDateString('de-DE', { year: 'numeric', month: '2-digit', day: '2-digit' })}</h5>
@@ -63,17 +63,17 @@ const TransactionDetails = (props) => {
                   <p>Total</p> <h5>{transaction.amount.toFixed(2)} €</h5>
                 </li>
               </ul>
-              
+
             </article>
-            {/* <p className="photo-label">Foto</p>
-            <img src="../img/quittung.jpeg" alt="" /> */}
+            <p className="photo-label">Foto</p>
+            <img src={transaction.image} alt={transaction.name} />
           </section>
           <button>Bearbeiten</button>
         </div>
-      : 
+        :
         <Loading />
       }
-      <Navbar/>
+      <Navbar />
     </main>
   );
 };

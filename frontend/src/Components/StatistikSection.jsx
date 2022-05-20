@@ -5,10 +5,10 @@ import Diagramm from "./Diagramm";
 import { useState } from "react";
 
 import { UserData } from "../Data";
-import { ContextProvider } from "react-chat-engine";
+
 
 const test = (value) => {
-    console.log("test", value)
+  console.log("test", value)
 }
 
 const StatistikSection = () => {
@@ -41,7 +41,7 @@ const StatistikSection = () => {
       </div>
 
       <div>
-        <select onChange={ () =>{test(this.value)} } className="select-start">
+        <select onChange={() => { test(this.value) }} className="select-start">
           <option value="income">Einnahmen</option>
           <option value="expens">Ausgaben</option>
         </select>

@@ -1,18 +1,19 @@
 function makeTransaction({
     _id,
     name,
-    income, 
+    income,
     amount,
+    image,
     created_at,
     userId
 }) {
-    if(!name){
+    if (!name) {
         throw new Error("Transaction must include name")
     }
-    if(!amount){
+    if (!amount) {
         throw new Error("Transaction must include amount")
     }
-    if(!userId){
+    if (!userId) {
         throw new Error("Transaction must include user")
     }
 
@@ -21,6 +22,7 @@ function makeTransaction({
         name,
         income,
         amount,
+        image,
         created_at,
         userId
     }

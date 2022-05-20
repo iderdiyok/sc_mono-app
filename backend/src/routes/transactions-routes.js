@@ -2,11 +2,11 @@ const express = require("express")
 const multer = require("multer")
 
 const { TransactionService } = require("../use-cases")
-// const { imageBufferToBase64 } = require("../utils/hash")
+const { imageBufferToBase64 } = require("../utils/hash")
 const { doAuthMiddleware } = require("../auth/doAuthMiddleware")
 
 const transactionsRouter = express.Router()
-const pictureUploadMiddleware = multer().single("picture")
+const pictureUploadMiddleware = multer().single("image")
 
 transactionsRouter.post("/add",
     pictureUploadMiddleware,
@@ -15,11 +15,12 @@ transactionsRouter.post("/add",
         try {
             const created_atTimeStamp = new Date(req.body.created_at).getTime()
             console.log("created_atTimeStamp: ", created_atTimeStamp);
-            // const pictureBase64 = imageBufferToBase64(req.file.buffer, req.file.mimetype)
+            const image = imageBufferToBase64(req.file.buffer, req.file.mimetype)
             const result = await TransactionService.addTransaction({
                 name: req.body.name,
                 income: req.body.income === "false" ? false : true,
                 amount: Number(req.body.amount),
+                image: image,
                 created_at: created_atTimeStamp,
                 userId: req.userClaims.sub
             })
