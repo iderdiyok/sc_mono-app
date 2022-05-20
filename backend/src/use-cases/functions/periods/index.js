@@ -2,14 +2,14 @@ const { dateToday } = require("./dateToday")
 const { getDay } = require("./getDay")
 const { getWeekStartAndEndTime } = require("./getWeekStartAndEndTime")
 const { getMonthStartAndEndTime } = require("./getMonthStartAndEndTime")
-const { getYear } = require("./getYear")
+const { getYearStartAndEndTime } = require("./getYearStartAndEndTime")
 
 const TimePeriodService = {
     dateToday,
     getDay,
     getWeekStartAndEndTime,
     getMonthStartAndEndTime,
-    getYear
+    getYearStartAndEndTime
 }
 
 module.exports = {TimePeriodService}
