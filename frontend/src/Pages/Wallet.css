@@ -62,3 +62,10 @@
   fill: rebeccapurple;
   stroke: aqua;
 }
+
+.wallet .see-all-list{
+  display: none;
+}
+
+
+

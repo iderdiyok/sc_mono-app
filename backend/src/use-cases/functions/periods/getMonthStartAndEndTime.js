@@ -22,11 +22,11 @@ function endOfMonth (d) {
 }
 
 //thunk
-const getMonth = () => {
+const getMonthStartAndEndTime = () => {
     const startAndEndOfMonth = {
         "start" : beginningOfMonth(dateToday()).getTime(),
         "end" : endOfMonth(dateToday()).getTime()
     }
     return startAndEndOfMonth
 }
-module.exports = {getMonth}
+module.exports = {getMonthStartAndEndTime}

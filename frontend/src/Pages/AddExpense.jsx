@@ -44,7 +44,10 @@ const AddExpense = (props) => {
 
   return (
     <main className="add-expense">
-      <HeaderLine title="Ausgabe hinzufügen" />
+      <div className="header">
+         <HeaderLine title="Ausgabe hinzufügen" />
+      </div>
+     
       <section>
         <form>
           <label>

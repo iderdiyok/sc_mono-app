@@ -1,25 +1,42 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import "./StatistikSection.css";
 
 import Diagramm from "./Diagramm";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { apiUrl } from "../api/api";
 
-import { UserData } from "../Data";
+// import { UserData } from "../Data";
+
+const StatistikSection = (props) => {
+  const [showOption, setShowOption] = useState("income")
+  const [timeOption, setTimeOption] = useState("week")
 
 
-const test = (value) => {
-  console.log("test", value)
-}
 
-const StatistikSection = () => {
-  const [userData, setUserData] = useState({
-    labels: UserData.map((data) => data.year),
+  useEffect(() => {
+    const fetchTransactionsData = async () => {
+      await fetch(apiUrl + "/api/users/statistics/" + showOption + "/" + timeOption, {
+        headers: {
+          token: "JWT " + props.token
+        }
+      })
+        .then(response => response.json())
+        .then(data => { props.setTransactionData(data) })
+    }
+    fetchTransactionsData()
+  }, [showOption, timeOption])
+
+  // console.log(transactionData);
+
+  var userData = {
+    labels: props.transactionData?.resultArray?.map(data => data.label),
 
     datasets: [
       {
-        label: "Ausgaben und Einnahmen",
+        label: showOption === "income" ? "Einnahmen" : "Ausgaben",
 
-        data: UserData.map((data) => data.userGain),
+        data: props.transactionData?.resultArray?.map(data => data.value),
         fill: true,
         backgroundColor: "#2b47fc42",
         borderColor: "#2b47fc",
@@ -30,18 +47,18 @@ const StatistikSection = () => {
         borderWidth: 2,
       },
     ],
-  });
+  }
 
   return (
     <section>
       <div className="navigation-stat">
-        <p>Woche</p>
-        <p className="selected-time">Monat</p>
-        <p>Jahr</p>
+        <button value="week" onClick={(e) => setTimeOption(e.target.value)} className={timeOption === "week" ? "selected-time" : null}>Woche</button>
+        <button value="month" onClick={(e) => setTimeOption(e.target.value)} className={timeOption === "month" ? "selected-time" : null}>Monat</button>
+        <button value="year" onClick={(e) => setTimeOption(e.target.value)} className={timeOption === "year" ? "selected-time" : null}>Jahr</button>
       </div>
 
       <div>
-        <select onChange={() => { test(this.value) }} className="select-start">
+        <select value={showOption} onChange={(e) => { setShowOption(e.target.value) }} className="select-start">
           <option value="income">Einnahmen</option>
           <option value="expens">Ausgaben</option>
         </select>

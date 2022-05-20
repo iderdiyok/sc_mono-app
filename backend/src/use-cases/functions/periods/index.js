@@ -1,14 +1,14 @@
 const { dateToday } = require("./dateToday")
 const { getDay } = require("./getDay")
-const { getWeek } = require("./getWeek")
-const { getMonth } = require("./getMonth")
+const { getWeekStartAndEndTime } = require("./getWeekStartAndEndTime")
+const { getMonthStartAndEndTime } = require("./getMonthStartAndEndTime")
 const { getYear } = require("./getYear")
 
 const TimePeriodService = {
     dateToday,
     getDay,
-    getWeek,
-    getMonth,
+    getWeekStartAndEndTime,
+    getMonthStartAndEndTime,
     getYear
 }
 

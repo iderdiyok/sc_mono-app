@@ -40,7 +40,10 @@ const AddIncome = (props) => {
   }
   return (
     <main className="add-income">
-      <HeaderLine title="Einnahme hinzufügen" />
+      <div className="header">
+         <HeaderLine title="Einnahme hinzufügen" />
+      </div>
+     
       <section>
         <form>
           <label>

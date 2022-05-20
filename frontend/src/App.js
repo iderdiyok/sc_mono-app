@@ -38,7 +38,13 @@ function App() {
               </AuthRequired>
             } 
           />
-          <Route path="/profil" element={<Profil />} />
+          <Route path="/profil" 
+            element={
+              <AuthRequired token={token} setToken={setToken}>
+                <Profil setToken={setToken} profileWallet={profileWallet}/>
+              </AuthRequired>
+            } 
+          />
           <Route path="/wallet" 
             element={
               <AuthRequired token={token} setToken={setToken}>
@@ -46,19 +52,36 @@ function App() {
               </AuthRequired>
             } 
           />
-          <Route path="/statistik" element={<Statistik />} />
-
-          {/* <Route
-            path="/transactions-details/:transactionId"
-            element={<TransactionDetailsIncome token={token}/>}
-          /> */}
-          <Route
-            path="/transactions-details/:transactionId"
-            element={<TransactionDetails token={token}/>}
+          <Route path="/statistik" 
+            element={
+              <AuthRequired token={token} setToken={setToken}>
+                <Statistik token={token}/>
+              </AuthRequired>
+            } 
           />
 
-          <Route path="/ausgabe" element={<AddExpense token={token}/>} />
-          <Route path="/einnahme" element={<AddIncome token={token}/>} />
+          <Route path="/transactions-details/:transactionId"
+            element={
+              <AuthRequired token={token} setToken={setToken}>
+                <TransactionDetails token={token}/>
+              </AuthRequired>
+            }
+          />
+
+          <Route path="/ausgabe" 
+            element={
+              <AuthRequired token={token} setToken={setToken}>
+                <AddExpense token={token}/>
+              </AuthRequired>
+            } 
+          />
+          <Route path="/einnahme" 
+            element={
+              <AuthRequired token={token} setToken={setToken}>
+                <AddIncome token={token}/>
+              </AuthRequired>
+            } 
+          />
         </Routes>
       </div>
   );
