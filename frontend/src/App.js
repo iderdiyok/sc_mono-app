@@ -25,6 +25,7 @@ function App() {
   }
 
   const profileWallet = showWallet(token)
+  console.log(profileWallet);
   return (
       <div className="App">
         <Routes>
@@ -34,7 +35,7 @@ function App() {
           <Route path="/home" 
             element={
               <AuthRequired token={token} setToken={setToken}>
-                <Home token={token}/>
+                <Home profileWallet={profileWallet} token={token}/>
               </AuthRequired>
             } 
           />

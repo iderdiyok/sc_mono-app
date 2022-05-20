@@ -14,7 +14,7 @@ const Home = (props) => {
         <HeaderLine title="Home" />
       </div>
       <div className="content">
-        <BalanceCard profileWallet={profileWallet} />
+        <BalanceCard profileWalletAll={props.profileWallet} profileWalletMonth={profileWallet} />
         <TransactionHistoryList profileWallet={profileWallet} />
         <Navbar />
       </div>
