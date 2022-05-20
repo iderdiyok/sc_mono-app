@@ -9,7 +9,7 @@ const TransactionHistoryList = (props) => {
     <section className="trans-list">
       <article className="list-header">
         <h4>Transaktionen Historie</h4>
-        <Link to="#">See all</Link>
+        <Link className="see-all-list" to="/wallet">See all</Link>
       </article>
       { props.profileWallet && Array.isArray(props.profileWallet.transactions)
         ?        

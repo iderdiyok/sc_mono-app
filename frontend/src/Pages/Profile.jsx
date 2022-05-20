@@ -25,7 +25,10 @@ const Profile = (props) => {
     }
   return (
     <main className="profile">
-      <HeaderLine title="Profil" />
+      <div className="header">
+         <HeaderLine title="Profil" />
+      </div>
+     
       <section>
         <div className="center avatar-img">
           <img src={props.profileWallet.avatar} alt="UserPhoto" />

@@ -1,20 +1,20 @@
-.add-expense{
-    min-height: 100vh;
-    background-color: white;
-    background-image: url(../../public/img/bg-curve-red.svg);
-    background-repeat: no-repeat;
-    background-size: inherit;
-    background-position: top;
+.add-expense {
+  min-height: 100vh;
 }
 
-.add-expense section{
-    background-color: white;
-    border-radius:20px ;
-    padding: 30px;
-    box-shadow: 0 0 30px rgba(0, 0, 0, 0.189);
-
+.add-expense .header {
+  background-color: var(--red);
+  padding: 0 15px;
 }
 
-.add-expense form button{
+.add-expense section {
+  background-color: white;
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.189);
+  margin-top: -20px;
+}
+
+.add-expense form button {
   margin: 0 0 0 auto;
 }
