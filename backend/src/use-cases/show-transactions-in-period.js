@@ -11,7 +11,7 @@ async function ShowTransactionsInPeriod({userId, startEndTimeStamps}){
     const user = makeUser(foundUser)
     const userView = userToUserView(user)
 
-    const transactions = await TransactionsDAO.findAllTransactionsOfUserWithSpecifiedPeriod(user._id.toString(), startEndTimeStamps)
+    const transactions = await TransactionsDAO.findAllTransactionsOfUserWithTimePeriod(user._id.toString(), startEndTimeStamps)
 
     return { ...userView, transactions}
 }
