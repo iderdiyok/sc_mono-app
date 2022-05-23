@@ -1,5 +1,4 @@
 import "./TopAusgaben.css";
-import FilterIcon from "../Components/Icons_Component/FilterIcon";
 import { Link } from "react-router-dom";
 
 
@@ -8,7 +7,7 @@ const TopAusgaben = (props) => {
     <section className="ausgaben-list">
       <article>
         <h4>Top Ausgaben</h4>
-        <FilterIcon />
+
       </article>
       <article>
         {props.transactionData?.filterAllTransaction?.map( t => 

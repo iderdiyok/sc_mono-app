@@ -51,10 +51,6 @@
     float: right;
 }
 
-.card-wrapper:hover{
-transform: translateY(-20px);
-box-shadow: 0 0 50px rgba(0, 0, 0, 0.545);
-}
 
 
 
