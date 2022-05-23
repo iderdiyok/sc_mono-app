@@ -8,21 +8,23 @@ async function findTransactionById(transactionId) {
 }
 async function findAllTransactionsOfUser(userId) {
     const db = await getDB()
-    const allTransactions = await db.collection("transactions").find({ userId: userId }).sort( { created_at: -1 } ).toArray()
+    const allTransactions = await db.collection("transactions").find({ userId: userId }).sort({ created_at: -1 }).toArray()
     return allTransactions
 }
-async function findAllTransactionsOfUserWithTimePeriod(userId, getTimeStamps){
+async function findAllTransactionsOfUserWithTimePeriod(userId, getTimeStamps) {
     console.log("TransactionsDAO: ", userId, getTimeStamps);
     const db = await getDB()
     const allTransactions = await db.collection("transactions").find({
-        $and:[
+        $and: [
             { userId: userId },
-            {created_at: {
-            $gte: getTimeStamps.start,
-            $lt: getTimeStamps.end
-            }}
+            {
+                created_at: {
+                    $gte: getTimeStamps.start,
+                    $lt: getTimeStamps.end
+                }
+            }
         ]
-    }).sort( { created_at: -1 } ).toArray()
+    }).sort({ created_at: -1 }).toArray()
     return allTransactions
 }
 async function insertTransaction(transaction) {
@@ -31,6 +33,8 @@ async function insertTransaction(transaction) {
     return insertionResult
 }
 async function updateTransaction(transactionId, transactionObject) {
+    console.log("transactionId", transactionId);
+    console.log("transactionObject", transactionObject);
     const db = await getDB()
     return db.collection("transactions").updateOne({ _id: new ObjectId(transactionId) }, { $set: transactionObject })
 }

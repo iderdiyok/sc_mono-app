@@ -5,7 +5,7 @@ import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { apiUrl } from "../api/api";
 import Loading from "../Components/Loading";
-
+import { Link } from "react-router-dom";
 const TransactionDetails = (props) => {
   const { transactionId } = useParams()
   const [transaction, setPost] = useState()
@@ -68,7 +68,9 @@ const TransactionDetails = (props) => {
             <p className="photo-label">Foto</p>
             <img src={transaction.image} alt={transaction.name} />
           </section>
-          <button>Bearbeiten</button>
+          <button>
+            <Link to={"/editExp/" + transaction._id}>
+              Bearbeiten</Link></button>
         </div>
         :
         <Loading />

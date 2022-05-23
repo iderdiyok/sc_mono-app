@@ -24,7 +24,7 @@ function makeUser({
     return {
         name,
         email,
-        avatar: avatar || "https://www.clipartmax.com/png/small/296-2969961_no-image-user-profile-icon.png",
+        avatar: avatar,
         totalBalance: totalBalance || 0,
         passwordHash: passwordHash || createPasswordHash(password, _pwSalt),
         passwordSalt: _pwSalt,
