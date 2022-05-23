@@ -2,6 +2,7 @@ import "./LoginPage.css";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import { apiUrl } from "../api/api";
+import { logo } from "../../public/img/man.png";
 
 const LoginPage = (props) => {
   const [email, setEmail] = useState("")
@@ -32,7 +33,7 @@ const loginUser = (event) => {
     <main className="login-page">
       <h1>Login</h1>
       <section className="from-container">
-        <img src="./img/man.png" alt="logo" />
+        <img src={logo} alt="logo" />
         <form>
           <label>
             E-Mail
