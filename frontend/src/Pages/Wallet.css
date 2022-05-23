@@ -71,3 +71,7 @@
 .wallet h4 span{
   display: none;
 }
+
+.wallet .icon-wr{
+  width: 105px;
+}

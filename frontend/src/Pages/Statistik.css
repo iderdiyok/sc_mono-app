@@ -1,3 +1,7 @@
+.statistik{
+  padding: 0 20px;
+}
+
 .statistik header {
   color: var(--text);
 }

@@ -44,7 +44,7 @@ const Wallet = (props) => {
           </h3>
           <article>
             <Link to="/einnahme">
-              <div>
+              <div className="icon-wr">
                 <div className="icon-wrapper center">
                   <PlusIcon />
                 </div>
@@ -52,7 +52,7 @@ const Wallet = (props) => {
               </div>
             </Link>
             <Link to="/ausgabe">
-              <div>
+              <div className="icon-wr">
                 <div className="icon-wrapper center">
                   <MinusIcon />
                 </div>
@@ -60,7 +60,7 @@ const Wallet = (props) => {
               </div>
             </Link>
             <a href="https://www.paypal.com/de/home" target="_blank" rel="noreferrer">
-              <div>
+              <div className="icon-wr">
                 <div className="icon-wrapper center pa">
                   <PaypalIcon />
                 </div>

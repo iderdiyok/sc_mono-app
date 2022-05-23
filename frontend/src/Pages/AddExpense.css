@@ -12,7 +12,7 @@
   border-radius: 20px;
   padding: 30px;
   box-shadow: 0 0 30px rgba(0, 0, 0, 0.189);
-  margin-top: -20px;
+  margin: -20px 20px 0 20px;
 }
 
 .add-expense form button {
