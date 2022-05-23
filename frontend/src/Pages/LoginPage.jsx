@@ -32,7 +32,7 @@ const loginUser = (event) => {
     <main className="login-page">
       <h1>Login</h1>
       <section className="from-container">
-        <img src="./man.png" alt="logo" />
+        <img src="/img/man.png" alt="logo" />
         <form>
           <label>
             E-Mail

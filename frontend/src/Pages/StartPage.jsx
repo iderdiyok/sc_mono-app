@@ -5,7 +5,7 @@ const StartPage = () => {
   return (
     <main className="start-page">
       <div className="start-img center">
-        <img className="person" src="./man.png" alt="man" />
+        <img className="person" src="./img/man.png" alt="man" />
       </div>
       <div>
         <h1>Spend Smarter Save More</h1>
