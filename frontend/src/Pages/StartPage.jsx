@@ -1,12 +1,11 @@
 import { Link } from "react-router-dom";
 import "./StartPage.css";
-import { logo } from "../man.png";
 
 const StartPage = () => {
   return (
     <main className="start-page">
       <div className="start-img center">
-        <img className="person" src={logo} alt="man" />
+        <img className="person" src="./man.png" alt="man" />
       </div>
       <div>
         <h1>Spend Smarter Save More</h1>
