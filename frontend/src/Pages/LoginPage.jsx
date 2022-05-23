@@ -2,7 +2,7 @@ import "./LoginPage.css";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import { apiUrl } from "../api/api";
-import { logo } from "../../public/img/man.png";
+import { logo } from "../man.png";
 
 const LoginPage = (props) => {
   const [email, setEmail] = useState("")

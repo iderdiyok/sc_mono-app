@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import "./StartPage.css";
-import { logo } from "../../public/img/man.png";
+import { logo } from "../man.png";
 
 const StartPage = () => {
   return (
