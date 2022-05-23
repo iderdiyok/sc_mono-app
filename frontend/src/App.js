@@ -27,7 +27,7 @@ function App() {
   }
 
   const profileWallet = showWallet(token)
-  console.log(profileWallet);
+  
   return (
     <div className="App">
       <Routes>
