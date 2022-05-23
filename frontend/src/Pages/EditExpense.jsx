@@ -30,10 +30,9 @@ const EditExpense = (props) => {
       .then(data => {
         setName(data.foundTransaction.name)
         setAmount(data.foundTransaction.amount)
-        setCreated_at(new Date(data.foundTransaction.created_at).toISOString().substring(0,16)) //2022-05-26T12:23
+        setCreated_at(new Date(data.foundTransaction.created_at).toISOString().substring(0, 16)) //2022-05-26T12:23
         setImage(data.foundTransaction.image)
       })
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [props.token, transactionId])
 
   const edit = (event) => {
@@ -44,11 +43,11 @@ const EditExpense = (props) => {
     formData.set("amount", amount)
     formData.set("created_at", created_at)
     formData.set("income", false)
-    
+
     // if(image){
     //   formData.set("image", image)
     // }
-    
+
     fetch(apiUrl + "/api/transactions/edit/" + transactionId, {
       method: "PUT",
       headers: {
@@ -67,7 +66,7 @@ const EditExpense = (props) => {
   return (
     <main className="add-expense">
       <div className="header">
-        <HeaderLine title="Ausgabe edit" />
+        <HeaderLine title="Ausgabe Bearbeitung" />
       </div>
       <section>
         <form>

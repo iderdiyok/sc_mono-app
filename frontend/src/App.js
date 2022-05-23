@@ -15,6 +15,7 @@ import { useState } from "react";
 import AuthRequired from "./Components/AuthRequired";
 import { showWallet } from "./hooks/showWallet";
 import EditExpense from "./Pages/EditExpense";
+import EditIncome from "./Pages/EditIncome";
 
 function App() {
   const [token, setToken] = useState(null)
@@ -26,41 +27,41 @@ function App() {
   }
 
   const profileWallet = showWallet(token)
-  
+  console.log(profileWallet);
   return (
-      <div className="App">
-        <Routes>
-          <Route path="/" element={<StartPage />} />
-          <Route path="/login" element={<LoginPage loginSuccess={loginSuccess}/>} />
-          <Route path="/registrieren" element={<SingUp />} />
-          <Route path="/home" 
-            element={
-              <AuthRequired token={token} setToken={setToken}>
-                <Home profileWallet={profileWallet} token={token}/>
-              </AuthRequired>
-            } 
-          />
-          <Route path="/profil" 
-            element={
-              <AuthRequired token={token} setToken={setToken}>
-                <Profil setToken={setToken} profileWallet={profileWallet}/>
-              </AuthRequired>
-            } 
-          />
-          <Route path="/wallet" 
-            element={
-              <AuthRequired token={token} setToken={setToken}>
-                <Wallet profileWallet={profileWallet}/>
-              </AuthRequired>
-            } 
-          />
-          <Route path="/statistik" 
-            element={
-              <AuthRequired token={token} setToken={setToken}>
-                <Statistik token={token}/>
-              </AuthRequired>
-            } 
-          />
+    <div className="App">
+      <Routes>
+        <Route path="/" element={<StartPage />} />
+        <Route path="/login" element={<LoginPage loginSuccess={loginSuccess} />} />
+        <Route path="/registrieren" element={<SingUp />} />
+        <Route path="/home"
+          element={
+            <AuthRequired token={token} setToken={setToken}>
+              <Home profileWallet={profileWallet} token={token} />
+            </AuthRequired>
+          }
+        />
+        <Route path="/profil"
+          element={
+            <AuthRequired token={token} setToken={setToken}>
+              <Profil setToken={setToken} profileWallet={profileWallet} />
+            </AuthRequired>
+          }
+        />
+        <Route path="/wallet"
+          element={
+            <AuthRequired token={token} setToken={setToken}>
+              <Wallet profileWallet={profileWallet} />
+            </AuthRequired>
+          }
+        />
+        <Route path="/statistik"
+          element={
+            <AuthRequired token={token} setToken={setToken}>
+              <Statistik token={token} />
+            </AuthRequired>
+          }
+        />
 
         <Route path="/transactions-details/:transactionId"
           element={
@@ -89,6 +90,13 @@ function App() {
           element={
             <AuthRequired token={token} setToken={setToken}>
               <EditExpense token={token} />
+            </AuthRequired>
+          }
+        />
+        <Route path="/editIncome/:transactionId"
+          element={
+            <AuthRequired token={token} setToken={setToken}>
+              <EditIncome token={token} />
             </AuthRequired>
           }
         />
