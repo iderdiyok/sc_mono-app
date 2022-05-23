@@ -8,7 +8,7 @@ const TransactionHistoryList = (props) => {
   return (
     <section className="trans-list">
       <article className="list-header">
-        <h4>Transaktionen Historie</h4>
+        <h4>Transaktionshistorie <span> in {new Date(props.profileWallet?.transactions[0]?.created_at).toLocaleString("de-DE", { month: "long" })}</span></h4>
         <Link className="see-all-list" to="/wallet">See all</Link>
       </article>
       { props.profileWallet && Array.isArray(props.profileWallet.transactions)

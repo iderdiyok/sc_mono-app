@@ -69,7 +69,7 @@ const TransactionDetails = (props) => {
             <img src={transaction.image} alt={transaction.name} />
           </section>
           <button>
-            <Link to={"/editExp/" + transaction._id}>
+            <Link to={transaction.income ? "/editIncome/" + transaction._id: "/editExp/" + transaction._id}>
               Bearbeiten</Link></button>
         </div>
         :

@@ -21,6 +21,10 @@ const EditExpense = (props) => {
 
   const navigate = useNavigate()
 
+  const setDate = (e) =>{
+    setCreated_at(e.target.value)
+    console.log(created_at ? created_at : null);
+  }
 
   useEffect(() => {
 
@@ -34,6 +38,7 @@ const EditExpense = (props) => {
         setName(data.foundTransaction.name)
         setAmount(data.foundTransaction.amount)
         // setCreated_at(new Date(data.foundTransaction.created_at))
+        // console.log(created_at ? created_at : null);
         // setEditTransaction(data.foundTransaction)
         // console.log(data.foundTransaction);
         // console.log("editTransaction",  editTransaction);
@@ -85,7 +90,7 @@ const EditExpense = (props) => {
           </label>
           <label>
             Datum
-            <input type="datetime-local" value={created_at} onChange={(e) => setCreated_at(e.target.value)} />
+            <input type="datetime-local" value={created_at} onChange={(e) => setDate(e.target.value)} />
           </label>
           {/* <AddPhotoBtn label="Foto Hinzufügen" text="Foto Hinzufügen" /> */}
           <div className="add-btn-file">

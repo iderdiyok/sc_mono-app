@@ -21,19 +21,19 @@ const Navbar = () => {
     <nav className="navigation">
       <ul>
         <li>
-          <NavLink to="/home" activeClassName="active">
+          <NavLink to="/home" activeclassname="active">
             <HomeIcon />
           </NavLink>
         </li>
 
         <li>
-          <NavLink to="/statistik" activeClassName="active">
+          <NavLink to="/statistik" activeclassname="active">
             <StatistikIcon />
           </NavLink>
         </li>
 
         <li>
-          <NavLink to="#" activeClassName="active">
+          <NavLink to="#" activeclassname="active">
             <div>
               <div className={"plus-minus-wrapper " + (state ? "hidden" : "")}>
                 <Link to="/einnahme">
@@ -60,13 +60,13 @@ const Navbar = () => {
         </li>
 
         <li>
-          <NavLink to="/wallet" activeClassName="active">
+          <NavLink to="/wallet" activeclassname="active">
             <WalletIcon />
           </NavLink>
         </li>
 
         <li>
-          <NavLink to="/profil" activeClassName="active">
+          <NavLink to="/profil" activeclassname="active">
             <ProfilIcon />
           </NavLink>
         </li>

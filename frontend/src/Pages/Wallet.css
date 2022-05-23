@@ -68,4 +68,6 @@
 }
 
 
-
+.wallet h4 span{
+  display: none;
+}

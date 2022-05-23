@@ -15,7 +15,7 @@ const BalanceCardEinnahmen = (props) => {
         <span>
           <ArrowDownIcon />
         </span>
-        Einnahmen
+        Einnahmen {new Date(props.profileWallet?.transactions[0]?.created_at).toLocaleString("de-DE", { month: "long" })}
       </p>
       <h4>{einnahmen.toFixed(2)} €</h4>
     </div>

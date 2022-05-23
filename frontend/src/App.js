@@ -26,43 +26,8 @@ function App() {
   }
 
   const profileWallet = showWallet(token)
-  console.log(profileWallet);
+  
   return (
-<<<<<<< HEAD
-    <div className="App">
-      <Routes>
-        <Route path="/" element={<StartPage />} />
-        <Route path="/login" element={<LoginPage loginSuccess={loginSuccess} />} />
-        <Route path="/registrieren" element={<SingUp />} />
-        <Route path="/home"
-          element={
-            <AuthRequired token={token} setToken={setToken}>
-              <Home token={token} />
-            </AuthRequired>
-          }
-        />
-        <Route path="/profil"
-          element={
-            <AuthRequired token={token} setToken={setToken}>
-              <Profil setToken={setToken} profileWallet={profileWallet} />
-            </AuthRequired>
-          }
-        />
-        <Route path="/wallet"
-          element={
-            <AuthRequired token={token} setToken={setToken}>
-              <Wallet profileWallet={profileWallet} />
-            </AuthRequired>
-          }
-        />
-        <Route path="/statistik"
-          element={
-            <AuthRequired token={token} setToken={setToken}>
-              <Statistik token={token} />
-            </AuthRequired>
-          }
-        />
-=======
       <div className="App">
         <Routes>
           <Route path="/" element={<StartPage />} />
@@ -96,7 +61,6 @@ function App() {
               </AuthRequired>
             } 
           />
->>>>>>> f07f99db014d470c02c068c3ad404a5c52f4df24
 
         <Route path="/transactions-details/:transactionId"
           element={
