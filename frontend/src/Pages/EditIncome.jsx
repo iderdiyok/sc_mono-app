@@ -66,7 +66,7 @@ const EditIncome = (props) => {
     return (
         <main className="add-income">
             <div className="header">
-                <HeaderLine title="Einnahme Bearbeitung" />
+                <HeaderLine title="Einnahme Bearbeiten" />
             </div>
             <section>
                 <form>
@@ -86,10 +86,10 @@ const EditIncome = (props) => {
                     <div className="add-btn-file">
                         <label>
                             {" "}
-                            User Foto
+                            Foto hinzufügen
                             <div className="add-photo center">
                                 <PlusIcon />
-                                <p>Foto Hinzufügen</p>
+                                <p>Foto hinzufügen</p>
                                 <input type="file" onChange={(e) => setImage(e.target.files[0])} />
                             </div>
                         </label>
