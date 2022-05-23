@@ -6,12 +6,10 @@ const TopAusgaben = (props) => {
   return (
     <section className="ausgaben-list">
       <article>
-        <h4>Top Ausgaben</h4>
-
       </article>
       <article>
-        {props.transactionData?.filterAllTransaction?.map( t => 
-            <Link to={"/transactions-details/" + t._id}>
+        {props.transactionData?.filterAllTransaction?.map(t =>
+          <Link to={"/transactions-details/" + t._id}>
             <div className="list-item">
               <div className="list-icon-name">
                 <div className="icon-list center">
@@ -23,11 +21,11 @@ const TopAusgaben = (props) => {
                 </div>
               </div>
               <div className="betrag">
-              <h4 className={!t.income ? "red" : "green"}>{(!t.income ? "- " : "+ ") + t.amount.toFixed(2) } €</h4>
+                <h4 className={!t.income ? "red" : "green"}>{(!t.income ? "- " : "+ ") + t.amount.toFixed(2)} €</h4>
               </div>
             </div>
-            </Link>
-          ) }
+          </Link>
+        )}
       </article>
     </section>
   );

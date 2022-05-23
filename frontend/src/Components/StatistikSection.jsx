@@ -48,7 +48,7 @@ const StatistikSection = (props) => {
         hoverRadius: 10,
         pointBackgroundColor: "#2b47fc",
         borderWidth: 2,
-        
+
       },
     ],
   };
@@ -92,7 +92,8 @@ const StatistikSection = (props) => {
         </select>
       </div>
 
-      <Diagramm chartData={userData}/>
+      <Diagramm chartData={userData} />
+      <h4> Top {showOption === "income" ? "Einnahmen" : "Ausgaben"}</h4>
     </section>
   );
 };
