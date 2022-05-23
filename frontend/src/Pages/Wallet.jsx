@@ -10,6 +10,24 @@ import MinusIcon from "../Components/Icons_Component/MinusIcon";
 import HeaderLine from "../Components/HeaderLine";
 
 const Wallet = (props) => {
+  const ausgaben = 
+    props.profileWallet && Array.isArray(props.profileWallet.transactions) 
+    ? props.profileWallet.transactions
+      .filter(t => t.income === false)
+      .map(t => t.amount)
+      .reduce((sum, amount) => sum + amount, 0)
+    : 0 
+
+    const einnahmen = 
+    props.profileWallet && Array.isArray(props.profileWallet.transactions) 
+    ? props.profileWallet.transactions
+      .filter(t => t.income === true)
+      .map(t => t.amount)
+      .reduce((sum, amount) => sum + amount, 0)
+    : 0 
+
+    const totalBalance = einnahmen - ausgaben
+
   return (
     <main className="wallet">
       <section className="header-section">
@@ -20,7 +38,7 @@ const Wallet = (props) => {
           <p>Totaler Beitrag</p>
           <h3>
             {props.profileWallet
-              ? props.profileWallet.totalBalance.toFixed(2)
+              ? totalBalance.toFixed(2)
               : 0}{" "}
             €
           </h3>
