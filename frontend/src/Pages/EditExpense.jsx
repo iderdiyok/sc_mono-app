@@ -66,7 +66,7 @@ const EditExpense = (props) => {
   return (
     <main className="add-expense">
       <div className="header">
-        <HeaderLine title="Ausgabe Bearbeitung" />
+        <HeaderLine title="Ausgabe Bearbeiten" />
       </div>
       <section>
         <form>
@@ -82,14 +82,15 @@ const EditExpense = (props) => {
             Datum
             <input type="datetime-local" value={created_at} onChange={(e) => setCreated_at(e.target.value)} />
           </label>
+
           {/* <AddPhotoBtn label="Foto Hinzufügen" text="Foto Hinzufügen" /> */}
           <div className="add-btn-file">
             <label>
               {" "}
-              User Foto
+              Foto hinzufügen
               <div className="add-photo center">
                 <PlusIcon />
-                <p>Foto Hinzufügen</p>
+                <p>Foto Bearbeiten</p>
                 <input type="file" onChange={(e) => setImage(e.target.files[0])} />
               </div>
             </label>

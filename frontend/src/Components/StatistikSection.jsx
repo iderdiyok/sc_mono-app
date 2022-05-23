@@ -10,7 +10,8 @@ import { apiUrl } from "../api/api";
 
 const StatistikSection = (props) => {
   const [showOption, setShowOption] = useState("income");
-  const [timeOption, setTimeOption] = useState("week");
+  const [timeOption, setTimeOption] = useState("Woechentlich");
+
 
   useEffect(() => {
     const fetchTransactionsData = async () => {
@@ -57,23 +58,23 @@ const StatistikSection = (props) => {
     <section>
       <div className="navigation-stat">
         <button
-          value="week"
+          value="Woechentlich"
           onClick={(e) => setTimeOption(e.target.value)}
-          className={timeOption === "week" ? "selected-time" : null}
+          className={timeOption === "Woechentlich" ? "selected-time" : null}
         >
           Woche
         </button>
         <button
-          value="month"
+          value="Monatlich"
           onClick={(e) => setTimeOption(e.target.value)}
-          className={timeOption === "month" ? "selected-time" : null}
+          className={timeOption === "Monatlich" ? "selected-time" : null}
         >
           Monat
         </button>
         <button
-          value="year"
+          value="Jaehrlich"
           onClick={(e) => setTimeOption(e.target.value)}
-          className={timeOption === "year" ? "selected-time" : null}
+          className={timeOption === "Jaehrlich" ? "selected-time" : null}
         >
           Jahr
         </button>
@@ -93,7 +94,7 @@ const StatistikSection = (props) => {
       </div>
 
       <Diagramm chartData={userData} />
-      <h4> Top {showOption === "income" ? "Einnahmen" : "Ausgaben"}</h4>
+      <h4> {timeOption + "e"} {showOption === "income" ? "Einnahmen" : "Ausgaben"}</h4>
     </section>
   );
 };

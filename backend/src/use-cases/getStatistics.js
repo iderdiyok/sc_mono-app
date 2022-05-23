@@ -2,10 +2,10 @@ const { getWeekStatistics } = require("./getWeekStatistics")
 const { getMonthStatistics } = require("./getMonthStatistics")
 const { getYearStatistics } = require("./getYearStatistics")
 
-async function getStatistics({ userId, showOption, timeOption}) {
-    if(timeOption === "month") {
+async function getStatistics({ userId, showOption, timeOption }) {
+    if (timeOption === "Monatlich") {
         return getMonthStatistics({ userId, showOption })
-    } else if (timeOption === "year") {
+    } else if (timeOption === "Jaehrlich") {
         return getYearStatistics({ userId, showOption })
     } else {
         return getWeekStatistics({ userId, showOption })
@@ -14,6 +14,6 @@ async function getStatistics({ userId, showOption, timeOption}) {
     // return result
 }
 
-module.exports = {getStatistics}
+module.exports = { getStatistics }
 
 
