@@ -10,9 +10,7 @@ import React from 'react'
 
 
 const EditExpense = (props) => {
-  // console.log(props);
   const { transactionId } = useParams("transactionId")
-  // const [editTransaction, setEditTransaction] = useState()
 
   const [name, setName] = useState("")
   const [amount, setAmount] = useState(0)
@@ -20,11 +18,6 @@ const EditExpense = (props) => {
   const [image, setImage] = useState()
 
   const navigate = useNavigate()
-
-  const setDate = (e) =>{
-    setCreated_at(e.target.value)
-    console.log(created_at ? created_at : null);
-  }
 
   useEffect(() => {
 
@@ -37,33 +30,31 @@ const EditExpense = (props) => {
       .then(data => {
         setName(data.foundTransaction.name)
         setAmount(data.foundTransaction.amount)
-        // setCreated_at(new Date(data.foundTransaction.created_at))
-        // console.log(created_at ? created_at : null);
-        // setEditTransaction(data.foundTransaction)
-        // console.log(data.foundTransaction);
-        // console.log("editTransaction",  editTransaction);
+        setCreated_at(new Date(data.foundTransaction.created_at).toISOString().substring(0,16)) //2022-05-26T12:23
+        setImage(data.foundTransaction.image)
       })
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [props.token, transactionId])
 
-
   const edit = (event) => {
     event.preventDefault()
 
-    // const formData = new FormData()
-    // formData.set("name", name)
-    // formData.set("amount", amount)
-    // formData.set("created_at", created_at)
-    // formData.set("income", false)
-    // formData.set("image", image)
-    console.log("amount", typeof amount);
-    fetch(apiUrl + "/api/transactions/edit", {
+    const formData = new FormData()
+    formData.set("name", name)
+    formData.set("amount", amount)
+    formData.set("created_at", created_at)
+    formData.set("income", false)
+    
+    // if(image){
+    //   formData.set("image", image)
+    // }
+    
+    fetch(apiUrl + "/api/transactions/edit/" + transactionId, {
       method: "PUT",
       headers: {
-        token: "JWT " + props.token,
-        "Content-Type": "application/json"
+        token: "JWT " + props.token
       },
-      body: JSON.stringify({ "_id": transactionId, name, "amount": Number(amount) })
+      body: formData
     })
       .then((response) => response.json())
       .then((result) => {
@@ -90,7 +81,7 @@ const EditExpense = (props) => {
           </label>
           <label>
             Datum
-            <input type="datetime-local" value={created_at} onChange={(e) => setDate(e.target.value)} />
+            <input type="datetime-local" value={created_at} onChange={(e) => setCreated_at(e.target.value)} />
           </label>
           {/* <AddPhotoBtn label="Foto Hinzufügen" text="Foto Hinzufügen" /> */}
           <div className="add-btn-file">

@@ -12,7 +12,6 @@ async function findAllTransactionsOfUser(userId) {
     return allTransactions
 }
 async function findAllTransactionsOfUserWithTimePeriod(userId, getTimeStamps) {
-    console.log("TransactionsDAO: ", userId, getTimeStamps);
     const db = await getDB()
     const allTransactions = await db.collection("transactions").find({
         $and: [
@@ -33,8 +32,6 @@ async function insertTransaction(transaction) {
     return insertionResult
 }
 async function updateTransaction(transactionId, transactionObject) {
-    console.log("transactionId", transactionId);
-    console.log("transactionObject", transactionObject);
     const db = await getDB()
     return db.collection("transactions").updateOne({ _id: new ObjectId(transactionId) }, { $set: transactionObject })
 }

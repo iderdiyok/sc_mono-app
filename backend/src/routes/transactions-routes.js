@@ -53,16 +53,19 @@ transactionsRouter.get("/:transactionId", doAuthMiddleware, async (req, res) => 
 })
 
 // edit transaction route 
-transactionsRouter.put("/edit", doAuthMiddleware, async (req, res) => {
+transactionsRouter.put("/edit/:transactionid", doAuthMiddleware, pictureUploadMiddleware, async (req, res) => {
     try {
-        // const transactionId = req.params.transactionId
-        const transactioUpdateInfo = req.body
-        console.log("transactioUpdateInfo", transactioUpdateInfo);
-        // console.log("transactionId", transactionId);
-
+        const _id = req.params.transactionid
+        const transactioUpdateInfo = {
+            _id, 
+            "name": req.body.name,
+            "amount": Number (req.body.amount),
+            "income": req.body.income === "false" ? false : true,
+            "created_at": new Date(req.body.created_at).getTime()
+        }
+        
+        console.log(transactioUpdateInfo);
         const updatedTransaction = await TransactionService.editTransaction(transactioUpdateInfo)
-
-        console.log("updatedTransaction", updatedTransaction);
 
         res.json(updatedTransaction)
     } catch (error) {
