@@ -13,6 +13,7 @@ const { getStatistics } = require("./getStatistics")
 const { addTransaction } = require("./add-transaction")
 const { showTransaction } = require("./show-transaction")
 const { editTransaction } = require("./edit-transaction")
+const { deleteTransaction } = require("./delete-transaction")
 
 
 
@@ -31,6 +32,7 @@ const UserService = {
 const TransactionService = {
     addTransaction,
     showTransaction,
-    editTransaction
+    editTransaction,
+    deleteTransaction
 }
 module.exports = { UserService, TransactionService }

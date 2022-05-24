@@ -66,7 +66,7 @@ const EditIncome = (props) => {
     return (
         <main className="add-income">
             <div className="header">
-                <HeaderLineTrash title="Einnahme Bearbeiten" />
+                <HeaderLineTrash title="Einnahme Bearbeiten" token={props.token} transactionId={transactionId}/>
             </div>
             <section>
                 <form>

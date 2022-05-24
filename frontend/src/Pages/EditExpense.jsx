@@ -45,10 +45,6 @@ const EditExpense = (props) => {
     formData.set("created_at", created_at)
     formData.set("income", false)
 
-    // if(image){
-    //   formData.set("image", image)
-    // }
-
     fetch(apiUrl + "/api/transactions/edit/" + transactionId, {
       method: "PUT",
       headers: {
@@ -67,7 +63,7 @@ const EditExpense = (props) => {
   return (
     <main className="add-expense">
       <div className="header">
-        <HeaderLineTrash title="Ausgabe Bearbeiten" />
+        <HeaderLineTrash title="Ausgabe Bearbeiten" token={props.token} transactionId={transactionId}/>
       </div>
       <section>
         <form>
