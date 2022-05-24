@@ -36,10 +36,16 @@ async function updateTransaction(transactionId, transactionObject) {
     return db.collection("transactions").updateOne({ _id: new ObjectId(transactionId) }, { $set: transactionObject })
 }
 
+async function deleteTransaction(transactionId) {
+    const db = await getDB()
+    return db.collection("transactions").deleteOne({ _id: new ObjectId(transactionId) })
+}
+
 module.exports = {
     insertTransaction,
     findTransactionById,
     findAllTransactionsOfUser,
     updateTransaction,
-    findAllTransactionsOfUserWithTimePeriod
+    findAllTransactionsOfUserWithTimePeriod,
+    deleteTransaction
 }

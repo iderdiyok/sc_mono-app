@@ -15,7 +15,6 @@ transactionsRouter.post("/add",
     async (req, res) => {
         try {
             const created_atTimeStamp = new Date(req.body.created_at).getTime()
-            console.log("created_atTimeStamp: ", created_atTimeStamp);
             let image;
 
             if (req.file === undefined) {
@@ -23,7 +22,7 @@ transactionsRouter.post("/add",
             } else {
                 image = imageBufferToBase64(req.file.buffer, req.file.mimetype)
             }
-            console.log("req.file.buffer", req.file);
+            
             const result = await TransactionService.addTransaction({
                 name: req.body.name,
                 income: req.body.income === "false" ? false : true,
@@ -48,7 +47,7 @@ transactionsRouter.get("/:transactionId", doAuthMiddleware, async (req, res) => 
         const result = await TransactionService.showTransaction({ transactionId })
         res.status(200).json(result)
     } catch (error) {
-        res.status(500).json({ error: { message: error ? error.message : "Unknown error while loading post." } })
+        res.status(500).json({ error: { message: error ? error.message : "Unknown error while loading." } })
     }
 })
 
@@ -63,14 +62,25 @@ transactionsRouter.put("/edit/:transactionid", doAuthMiddleware, pictureUploadMi
             "income": req.body.income === "false" ? false : true,
             "created_at": new Date(req.body.created_at).getTime()
         }
-        
-        console.log(transactioUpdateInfo);
+
         const updatedTransaction = await TransactionService.editTransaction(transactioUpdateInfo)
 
         res.json(updatedTransaction)
     } catch (error) {
         console.log(error);
         res.status(500).json("Unknown error while editing a Transaction.")
+    }
+})
+
+//delete Transaction
+transactionsRouter.delete("/delete/:transactionId", doAuthMiddleware, async (req, res) => {
+    try {
+        const transactionId = req.params.transactionId
+        console.log(transactionId);
+        const result = await TransactionService.deleteTransaction( transactionId )
+        res.status(200).json(result)
+    } catch (error) {
+        res.status(500).json({ error: { message: error ? error.message : "Unknown error while delete transaction." } })
     }
 })
 
