@@ -1,5 +1,5 @@
 import "./AddPhotoBtn.css";
-import PlusIcon from "./Icons_Component/PlusRoundIcon";
+import PlusRoundIcon from "./Icons_Component/PlusRoundIcon";
 
 const AddButtonIcon = (props) => {
   return (
@@ -8,7 +8,7 @@ const AddButtonIcon = (props) => {
         {" "}
         {props.label}
         <div className="add-photo center">
-          <PlusIcon />
+          <PlusRoundIcon />
           <p>{props.text}</p>
           <input type="file" />
         </div>

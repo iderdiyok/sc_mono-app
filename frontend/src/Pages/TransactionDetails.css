@@ -33,7 +33,6 @@
   margin-bottom: 10px;
 }
 
-
 /*Details*/
 .trans-detail-wrapper-expense .wrapper-inner {
   background-color: rgb(255, 255, 255);
@@ -74,12 +73,19 @@
 .trans-detail-wrapper-expense button {
   width: 100%;
   background: none;
-  color: var(--inputtext);
   font-size: 18px;
   border: 2px solid var(--inputtext);
   padding: 12px 30px;
   border-radius: 30px;
   margin-bottom: 100px;
+  transition: all 0.2s;
+  cursor: pointer;
+}
+.trans-detail-wrapper-expense button:hover {
+  background: var(--inputtext);
+}
+.trans-detail-wrapper-expense button:hover a{
+  color: white;
 }
 
 .photo-label {
@@ -90,13 +96,13 @@
   border-radius: 20px;
   margin-bottom: 30px;
 }
-.red-expense{
+.red-expense {
   background-color: rgba(255, 0, 0, 0.103);
   color: var(--red);
   padding: 5px 10px;
   border-radius: 20px;
-  }
-.green-income{
+}
+.green-income {
   background-color: #00b4961c;
   color: var(--green);
   padding: 5px 10px;

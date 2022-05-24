@@ -2,7 +2,7 @@ import "./Home.css"; //
 import Navbar from "../Components/Navbar";
 import BalanceCard from "../Components/BalanceCard";
 import TransactionHistoryList from "../Components/TransactionHistoryList";
-import HeaderLineTrash from "../Components/HeaderLineTrash";
+import HeaderLine from "../Components/HeaderLine";
 // import {useProfileInfo} from "../hooks/useProfileInfo"
 import { showWalletOfMonths } from "../hooks/showWalletOfMonths";
 const Home = (props) => {
@@ -11,7 +11,7 @@ const Home = (props) => {
   return (
     <main className="home">
       <div className="home-header">
-        <HeaderLineTrash title="Home" />
+        <HeaderLine title="Home" />
       </div>
       <div className="content">
         <BalanceCard profileWalletAll={props.profileWallet} profileWalletMonth={profileWallet} />
