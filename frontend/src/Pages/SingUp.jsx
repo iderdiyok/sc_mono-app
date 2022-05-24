@@ -1,8 +1,5 @@
 import "./SingUp.css";
 import { Link, useNavigate } from "react-router-dom";
-
-
-import AddButtonIcon from "../Components/AddPhotoBtn";
 import { useState } from "react";
 import { apiUrl } from "../api/api";
 import PlusIcon from "../Components/Icons_Component/PlusIcon";
@@ -63,9 +60,6 @@ const SingUp = () => {
             Passwort
             <input type="password" placeholder="Passwort" value={password} onChange={(e) => setPassword(e.target.value)} />
           </label>
-
-          {/* upload photo */}
-          {/* <AddButtonIcon label="User Foto" text="Foto Hinzufügen" onChange={(e) => setAvatar(e.target.files[0])} /> */}
           <div className="add-btn-file">
             <label>
               {" "}

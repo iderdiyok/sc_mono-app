@@ -15,12 +15,16 @@ const TransactionHistoryList = (props) => {
       </article>
       {props.profileWallet && Array.isArray(props.profileWallet.transactions)
         ?
-        props.profileWallet.transactions.map(t =>
+        props.profileWallet.transactions.map((t, i) =>
           <motion.article key={t._id} className="list-body"
-            animate={{
-              opacity: [0, 0.5, 1],
-              y: [100, 0, 0],
-            }}
+            initial={{y: '100vh'}}
+            animate={
+              {
+                opacity: [0, 0.5, 1],
+                y: [100, 0, 0]
+              }
+            }
+            transition={{type: 'twin',duration:.5, delay: ((parseInt(i) + .5) / 10)}}
           >
             <Link to={"/transactions-details/" + t._id}>
               <motion.div className="list-item">

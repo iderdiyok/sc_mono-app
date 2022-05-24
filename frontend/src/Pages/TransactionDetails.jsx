@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import { apiUrl } from "../api/api";
 import Loading from "../Components/Loading";
 import { Link } from "react-router-dom";
+
 const TransactionDetails = (props) => {
   const { transactionId } = useParams()
   const [transaction, setPost] = useState()
@@ -63,7 +64,6 @@ const TransactionDetails = (props) => {
                   <p>Total</p> <h5>{transaction.amount.toFixed(2)} €</h5>
                 </li>
               </ul>
-
             </article>
             <p className="photo-label">Foto</p>
             <img src={transaction.image} alt={transaction.name} />
@@ -77,7 +77,7 @@ const TransactionDetails = (props) => {
       }
       <Navbar />
     </main>
-  );
-};
+  )
+}
 
 export default TransactionDetails;

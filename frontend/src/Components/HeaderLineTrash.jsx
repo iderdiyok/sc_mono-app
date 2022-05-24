@@ -29,7 +29,7 @@ const HeaderLine = (props) => {
       </Link>
 
       <h4>{props.title}</h4>
-      <div onClick={deleteTransaction}>
+      <div className="shake-trash-icon" onClick={deleteTransaction}>
         <TrashIcon />
       </div>
     </header>

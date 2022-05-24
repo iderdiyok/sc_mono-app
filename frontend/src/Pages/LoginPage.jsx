@@ -7,26 +7,23 @@ const LoginPage = (props) => {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
 
-  // const [error, setError] = useState("")
+  const loginUser = (event) => {
+    event.preventDefault()
 
-const loginUser = (event) => {
-  event.preventDefault()
-
-  fetch( apiUrl + "/api/users/login", {
-    method : "POST",
-    headers: {"Content-Type": "application/json"},
-    credentials: "include",
-    body: JSON.stringify({email, password})
-  })
-  .then(response => response.json)
-  .then( data => {
-    if (!data.err) {
-      props.loginSuccess(data.token)
-      return
-    }
-
-  })
-}
+    fetch( apiUrl + "/api/users/login", {
+      method : "POST",
+      headers: {"Content-Type": "application/json"},
+      credentials: "include",
+      body: JSON.stringify({email, password})
+    })
+    .then(response => response.json)
+    .then( data => {
+      if (!data.err) {
+        props.loginSuccess(data.token)
+        return
+      }
+    })
+  }
 
   return (
     <main className="login-page">
@@ -43,11 +40,11 @@ const loginUser = (event) => {
             <input value={password} onChange={(e) => setPassword(e.target.value)} type="password" placeholder="Passwort" />
           </label>
           <Link to="/home">
-           <button className="btn-blue" type="submit" onClick={loginUser}>
-            Login
-          </button>
+            <button className="btn-blue" type="submit" onClick={loginUser}>
+              Login
+            </button>
           </Link>
-         
+        
         </form>
       </section>
       <p>

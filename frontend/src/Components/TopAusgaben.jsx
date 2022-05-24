@@ -1,5 +1,6 @@
 import "./TopAusgaben.css";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 
 
 const TopAusgaben = (props) => {
@@ -8,7 +9,17 @@ const TopAusgaben = (props) => {
       <article>
       </article>
       <article>
-        {props.transactionData?.filterAllTransaction?.map(t =>
+        {props.transactionData?.filterAllTransaction?.map((t,i) =>
+        <motion.div
+          initial={{y: '100vh'}}
+          animate={
+            {
+              opacity: [0, 0.5, 1],
+              y: [100, 0, 0]
+            }
+          }
+          transition={{type: 'twin',duration:.5, delay: ((parseInt(i) + .5) / 10)}}
+        >
           <Link to={"/transactions-details/" + t._id}>
             <div className="list-item">
               <div className="list-icon-name">
@@ -25,6 +36,7 @@ const TopAusgaben = (props) => {
               </div>
             </div>
           </Link>
+          </motion.div>
         )}
       </article>
     </section>

@@ -2,7 +2,6 @@ import "./AddExpense.css";
 import { useState } from "react"
 import { useNavigate } from "react-router-dom";
 import HeaderLine from "../Components/HeaderLine";
-import AddPhotoBtn from "../Components/AddPhotoBtn";
 import PlusIcon from "../Components/Icons_Component/PlusIcon";
 import Navbar from "../Components/Navbar";
 import { apiUrl } from "../api/api";
@@ -10,7 +9,6 @@ import { apiUrl } from "../api/api";
 import { motion } from "framer-motion"
 const AddExpense = (props) => {
 
-  // const [picture, setPicture] = useState()
   const [name, setName] = useState("")
   const [amount, setAmount] = useState(0)
   const [created_at, setCreated_at] = useState()
@@ -65,7 +63,6 @@ const AddExpense = (props) => {
             Datum
             <input type="datetime-local" value={created_at} onChange={(e) => setCreated_at(e.target.value)} />
           </label>
-          {/* <AddPhotoBtn label="Foto Hinzufügen" text="Foto Hinzufügen" /> */}
           <div className="add-btn-file">
             <label>
               {" "}

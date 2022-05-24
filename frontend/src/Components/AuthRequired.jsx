@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import { Navigate } from "react-router-dom"
 import { apiUrl } from "../api/api"
+import Loading from "./Loading"
 
 const AuthRequired = (props) => {
     const [loading, setLoading] = useState(true)
@@ -29,7 +30,7 @@ const AuthRequired = (props) => {
     }, [props])
 
     if(loading) {
-        return <p className='text-light'>Loading...</p>
+        return <Loading />
     } 
     
     if(!props.token) {
@@ -39,5 +40,5 @@ const AuthRequired = (props) => {
     
     return <>{props.children}</>
 }
- 
+
 export default AuthRequired;

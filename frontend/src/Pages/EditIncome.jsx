@@ -86,10 +86,10 @@ const EditIncome = (props) => {
                     <div className="add-btn-file">
                         <label>
                             {" "}
-                            Foto hinzufügen
+                            Foto bearbeiten
                             <div className="add-photo center">
                                 <PlusIcon />
-                                <p>Foto hinzufügen</p>
+                                <p>Foto bearbeiten</p>
                                 <input type="file" onChange={(e) => setImage(e.target.files[0])} />
                             </div>
                         </label>

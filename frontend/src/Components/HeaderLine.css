@@ -10,3 +10,18 @@
 .header-line .back-btn{
   fill: white;
 }
+
+.header-line svg{
+  cursor: pointer;
+}
+
+.shake-trash-icon:hover{
+  animation: shake .5s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes shake {
+  0% { transform: translate(0px, 0px) rotate(0deg); }
+  50% { transform: translate(0px, 2px) rotate(-1deg); }
+  100% { transform: translate(0px, 0px) rotate(-1deg); }
+}

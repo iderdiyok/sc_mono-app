@@ -1,6 +1,5 @@
 import "./AddIncome.css";
 import HeaderLine from "../Components/HeaderLine";
-import AddPhotoBtn from "../Components/AddPhotoBtn";
 import PlusIcon from "../Components/Icons_Component/PlusIcon";
 import Navbar from "../Components/Navbar";
 import { apiUrl } from "../api/api";
@@ -41,9 +40,9 @@ const AddIncome = (props) => {
   return (
     <main className="add-income">
       <div className="header">
-         <HeaderLine title="Einnahme hinzufügen" />
+        <HeaderLine title="Einnahme hinzufügen" />
       </div>
-     
+    
       <section>
         <form>
           <label>
@@ -58,7 +57,7 @@ const AddIncome = (props) => {
             Datum
             <input type="datetime-local" value={created_at} onChange={(e) => setCreated_at(e.target.value)} />
           </label>
-          {/* <AddPhotoBtn label="Foto Hinzufügen" text="Foto Hinzufügen" /> */}
+          
           <div className="add-btn-file">
             <label>
               {" "}
@@ -70,7 +69,6 @@ const AddIncome = (props) => {
               </div>
             </label>
           </div>
-
 
           <button type="submit" className="btn-blue" onClick={addIncome}>
             Speichern

@@ -2,12 +2,10 @@ import "./AddExpense.css";
 import { useEffect, useState } from "react"
 import { useNavigate, useParams } from "react-router-dom";
 import HeaderLineTrash from "../Components/HeaderLineTrash";
-import AddPhotoBtn from "../Components/AddPhotoBtn";
 import PlusIcon from "../Components/Icons_Component/PlusIcon";
 import Navbar from "../Components/Navbar";
 import { apiUrl } from "../api/api";
 import React from 'react'
-import TrashIcon from "../Components/Icons_Component/TrashIcon";
 
 
 const EditExpense = (props) => {
@@ -55,7 +53,6 @@ const EditExpense = (props) => {
       .then((response) => response.json())
       .then((result) => {
         if (result.acknowledged) {
-          console.log("expense hat geandert");
           navigate("/home")
         }
       })
@@ -84,7 +81,7 @@ const EditExpense = (props) => {
           <div className="add-btn-file">
             <label>
               {" "}
-              Foto hinzufügen
+              Foto bearbeiten
               <div className="add-photo center">
                 <PlusIcon />
                 <p>Foto Bearbeiten</p>

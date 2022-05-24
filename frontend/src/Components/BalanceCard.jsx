@@ -6,10 +6,13 @@ import BalanceCardEinnahmen from "./BalanceCardEinnahmen";
 import BalanceCardAusgaben from "./BalanceCardAusgaben";
 
 import { motion } from "framer-motion"
+import { useEffect, useState } from "react";
 
 const BalanceCard = (props) => {
-
-  const ausgaben =
+  const [totalBalance, setTotalBalance] = useState(0)
+  
+  useEffect(() =>{
+    const ausgaben =
     props.profileWalletAll && Array.isArray(props.profileWalletAll.transactions)
       ? props.profileWalletAll.transactions
         .filter(t => t.income === false)
@@ -17,7 +20,7 @@ const BalanceCard = (props) => {
         .reduce((sum, amount) => sum + amount, 0)
       : 0
 
-  const einnahmen =
+    const einnahmen =
     props.profileWalletAll && Array.isArray(props.profileWalletAll.transactions)
       ? props.profileWalletAll.transactions
         .filter(t => t.income === true)
@@ -25,7 +28,9 @@ const BalanceCard = (props) => {
         .reduce((sum, amount) => sum + amount, 0)
       : 0
 
-  const totalBalance = einnahmen - ausgaben
+    setTotalBalance( einnahmen - ausgaben )
+  }, [props.profileWalletAll])
+  
   return (
     <motion.section className="card-wrapper"
       initial={{ y: '-5vh' }}

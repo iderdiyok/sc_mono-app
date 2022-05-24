@@ -12,9 +12,7 @@ const Statistik = (props) => {
     
     <main className="statistik">
       <HeaderLine title="Statistik" />
-      
       <StatistikSection transactionData={transactionData} setTransactionData={setTransactionData} token={props.token}/>
-
       <TopAusgaben transactionData={transactionData}/>
       <Navbar />
     </main>

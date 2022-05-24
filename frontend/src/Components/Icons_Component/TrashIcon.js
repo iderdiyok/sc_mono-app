@@ -5,6 +5,7 @@ const TrashIcon = () => {
       width="20"
       height="22"
       viewBox="0 0 20 22"
+      className="shake-trash-icon"
     >
       <path
         id="Form_43"

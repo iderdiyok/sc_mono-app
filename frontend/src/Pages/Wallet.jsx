@@ -1,9 +1,7 @@
 import "./Wallet.css";
-
 import { Link } from "react-router-dom";
 import Navbar from "../Components/Navbar";
 import TransactionHistoryList from "../Components/TransactionHistoryList";
-
 import PlusIcon from "../Components/Icons_Component/PlusIcon";
 import PaypalIcon from "../Components/Icons_Component/PaypalIcon";
 import MinusIcon from "../Components/Icons_Component/MinusIcon";
