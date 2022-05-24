@@ -6,6 +6,7 @@ import AddButtonIcon from "../Components/AddPhotoBtn";
 import { useState } from "react";
 import { apiUrl } from "../api/api";
 import PlusIcon from "../Components/Icons_Component/PlusIcon";
+import { motion } from "framer-motion"
 
 const SingUp = () => {
   const [name, setName] = useState("")
@@ -77,9 +78,12 @@ const SingUp = () => {
             </label>
           </div>
 
-          <button className="btn-blue" onClick={register} type="submit">
+          <motion.button className="btn-blue" onClick={register} type="submit"
+            whileHover={{
+              scale: 1.1
+            }}>
             Registrieren
-          </button>
+          </motion.button>
           {error && <p>{error}</p>}
           {success && <p>{success}</p>}
         </form>

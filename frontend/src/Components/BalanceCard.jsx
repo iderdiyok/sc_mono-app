@@ -5,27 +5,34 @@ import DotsIcon from "../Components/Icons_Component/DotsIcon";
 import BalanceCardEinnahmen from "./BalanceCardEinnahmen";
 import BalanceCardAusgaben from "./BalanceCardAusgaben";
 
+import { motion } from "framer-motion"
+
 const BalanceCard = (props) => {
 
-  const ausgaben = 
-    props.profileWalletAll && Array.isArray(props.profileWalletAll.transactions) 
-    ? props.profileWalletAll.transactions
-      .filter(t => t.income === false)
-      .map(t => t.amount)
-      .reduce((sum, amount) => sum + amount, 0)
-    : 0 
+  const ausgaben =
+    props.profileWalletAll && Array.isArray(props.profileWalletAll.transactions)
+      ? props.profileWalletAll.transactions
+        .filter(t => t.income === false)
+        .map(t => t.amount)
+        .reduce((sum, amount) => sum + amount, 0)
+      : 0
 
-    const einnahmen = 
-    props.profileWalletAll && Array.isArray(props.profileWalletAll.transactions) 
-    ? props.profileWalletAll.transactions
-      .filter(t => t.income === true)
-      .map(t => t.amount)
-      .reduce((sum, amount) => sum + amount, 0)
-    : 0 
+  const einnahmen =
+    props.profileWalletAll && Array.isArray(props.profileWalletAll.transactions)
+      ? props.profileWalletAll.transactions
+        .filter(t => t.income === true)
+        .map(t => t.amount)
+        .reduce((sum, amount) => sum + amount, 0)
+      : 0
 
-    const totalBalance = einnahmen - ausgaben
+  const totalBalance = einnahmen - ausgaben
   return (
-    <section className="card-wrapper">
+    <motion.section className="card-wrapper"
+      initial={{ y: '-5vh' }}
+      animate={{ y: 10 }}
+      transition={{ delay: .2, type: "spring", stiffness: 200, ease: "easeInOut" }}
+      whileHover={{ scale: 1.1 }}
+    >
       <article className="card-wrapper-header">
         <div>
           <h5>Totales Guthaben</h5>
@@ -36,10 +43,10 @@ const BalanceCard = (props) => {
         </div>
       </article>
       <article className="in-out">
-       <BalanceCardEinnahmen profileWallet={props.profileWalletMonth}/>
-       <BalanceCardAusgaben profileWallet={props.profileWalletMonth}/>
+        <BalanceCardEinnahmen profileWallet={props.profileWalletMonth} />
+        <BalanceCardAusgaben profileWallet={props.profileWalletMonth} />
       </article>
-    </section>
+    </motion.section>
   );
 };
 

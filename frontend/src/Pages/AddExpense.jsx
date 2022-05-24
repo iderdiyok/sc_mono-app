@@ -7,6 +7,7 @@ import PlusIcon from "../Components/Icons_Component/PlusIcon";
 import Navbar from "../Components/Navbar";
 import { apiUrl } from "../api/api";
 
+import { motion } from "framer-motion"
 const AddExpense = (props) => {
 
   // const [picture, setPicture] = useState()
@@ -45,10 +46,12 @@ const AddExpense = (props) => {
   return (
     <main className="add-expense">
       <div className="header">
-         <HeaderLine title="Ausgabe hinzufügen" />
+        <HeaderLine title="Ausgabe hinzufügen" />
       </div>
-     
-      <section>
+
+      <motion.section
+        transition={{ type: 'spring', stiffness: 200, delay: 0.1 }}
+        exit={{ scale: 3 }}>
         <form>
           <label>
             Name
@@ -75,11 +78,15 @@ const AddExpense = (props) => {
             </label>
           </div>
 
-          <button type="submit" className="btn-blue" onClick={addExpense}>
+          <motion.button type="submit" className="btn-blue" onClick={addExpense}
+            whileHover={{
+              scale: 1.1,
+              opacity: .5
+            }}>
             Speichern
-          </button>
+          </motion.button>
         </form>
-      </section>
+      </motion.section>
       <Navbar />
     </main>
   );
