@@ -1,7 +1,7 @@
 import "./AddExpense.css";
 import { useEffect, useState } from "react"
 import { useNavigate, useParams } from "react-router-dom";
-import HeaderLine from "../Components/HeaderLine";
+import HeaderLineTrash from "../Components/HeaderLineTrash";
 import AddPhotoBtn from "../Components/AddPhotoBtn";
 import PlusIcon from "../Components/Icons_Component/PlusIcon";
 import Navbar from "../Components/Navbar";
@@ -67,7 +67,7 @@ const EditExpense = (props) => {
   return (
     <main className="add-expense">
       <div className="header">
-        <HeaderLine title="Ausgabe Bearbeiten" />
+        <HeaderLineTrash title="Ausgabe Bearbeiten" />
       </div>
       <section>
         <form>

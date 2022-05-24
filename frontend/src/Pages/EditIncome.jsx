@@ -1,7 +1,7 @@
 import "./AddIncome.css";
 import { useEffect, useState } from "react"
 import { useNavigate, useParams } from "react-router-dom";
-import HeaderLine from "../Components/HeaderLine";
+import HeaderLineTrash from "../Components/HeaderLineTrash";
 import AddPhotoBtn from "../Components/AddPhotoBtn";
 import PlusIcon from "../Components/Icons_Component/PlusIcon";
 import Navbar from "../Components/Navbar";
@@ -66,7 +66,7 @@ const EditIncome = (props) => {
     return (
         <main className="add-income">
             <div className="header">
-                <HeaderLine title="Einnahme Bearbeiten" />
+                <HeaderLineTrash title="Einnahme Bearbeiten" />
             </div>
             <section>
                 <form>
