@@ -10,3 +10,7 @@
 .header-line .back-btn{
   fill: white;
 }
+
+.header-line svg {
+  cursor: pointer;
+}
