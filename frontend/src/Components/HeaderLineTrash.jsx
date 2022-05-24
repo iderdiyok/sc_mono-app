@@ -1,9 +1,9 @@
 import "./HeaderLine.css";
 
 import BackButton from "./BackButton";
-import DotsIcon from "./Icons_Component/DotsIcon";
 
 import { Link } from "react-router-dom";
+import TrashIcon from "./Icons_Component/TrashIcon";
 
 const HeaderLine = (props) => {
   return (
@@ -13,7 +13,7 @@ const HeaderLine = (props) => {
       </Link>
 
       <h4>{props.title}</h4>
-      <DotsIcon />
+      <TrashIcon />
     </header>
   );
 };

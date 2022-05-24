@@ -7,6 +7,7 @@ import PlusIcon from "../Components/Icons_Component/PlusIcon";
 import Navbar from "../Components/Navbar";
 import { apiUrl } from "../api/api";
 import React from 'react'
+import TrashIcon from "../Components/Icons_Component/TrashIcon";
 
 
 const EditExpense = (props) => {
