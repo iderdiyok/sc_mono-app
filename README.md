@@ -21,7 +21,7 @@ The Mono app is intended to enable users to keep track of their costs!
 
 ## Design
 
-[Figma](https://www.figma.com/file/HCeTzaZ42kt9RnvBhmeS4t/mono---Money-Tracker?node-id=0%3A1)
+[Figma](https://www.figma.com/file/Ob9bq26eiLE7f3OHhlcaQZ/mono-Money-Tracker-Copy-Copy)
 
 
 ## Demo
