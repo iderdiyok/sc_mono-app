@@ -26,7 +26,7 @@ The Mono app is intended to enable users to keep track of their costs!
 
 ## Demo
 
-https://mono-1.herokuapp.com/
+[https://mono-1.herokuapp.com/](https://mono-titan.herokuapp.com/)
 
 
 ## Run Locally
