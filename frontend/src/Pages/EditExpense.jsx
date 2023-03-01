@@ -84,7 +84,7 @@ const EditExpense = (props) => {
               <div className="add-photo center">
                 <PlusIcon />
                 <p>Foto Bearbeiten</p>
-                <input type="file" onChange={(e) => setImage(e.target.files[0])} />
+                <input type="file" value={image} onChange={(e) => setImage(e.target.files[0])} />
               </div>
             </label>
           </div>
