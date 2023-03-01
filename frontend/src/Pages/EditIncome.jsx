@@ -2,7 +2,6 @@ import "./AddIncome.css";
 import { useEffect, useState } from "react"
 import { useNavigate, useParams } from "react-router-dom";
 import HeaderLineTrash from "../Components/HeaderLineTrash";
-import AddPhotoBtn from "../Components/AddPhotoBtn";
 import PlusIcon from "../Components/Icons_Component/PlusIcon";
 import Navbar from "../Components/Navbar";
 import { apiUrl } from "../api/api";
@@ -15,7 +14,6 @@ const EditIncome = (props) => {
     const [name, setName] = useState("")
     const [amount, setAmount] = useState(0)
     const [created_at, setCreated_at] = useState()
-    const [image, setImage] = useState()
 
     const navigate = useNavigate()
 
