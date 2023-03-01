@@ -14,7 +14,6 @@ const EditExpense = (props) => {
   const [name, setName] = useState("")
   const [amount, setAmount] = useState(0)
   const [created_at, setCreated_at] = useState()
-  const [image, setImage] = useState()
 
   const navigate = useNavigate()
 
