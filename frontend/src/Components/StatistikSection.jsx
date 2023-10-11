@@ -10,7 +10,7 @@ import { apiUrl } from "../api/api";
 
 const StatistikSection = (props) => {
   const [showOption, setShowOption] = useState("income");
-  const [timeOption, setTimeOption] = useState("Woechentlich");
+  const [timeOption, setTimeOption] = useState("Jaehrlich");
 
 
   useEffect(() => {

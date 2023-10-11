@@ -16,7 +16,7 @@ const LoginPage = (props) => {
       credentials: "include",
       body: JSON.stringify({email, password})
     })
-    .then(response => response.json)
+    .then(response => response.json())
     .then( data => {
       if (!data.err) {
         props.loginSuccess(data.token)

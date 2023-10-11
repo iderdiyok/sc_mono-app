@@ -1,15 +1,47 @@
-import "./Diagramm.css"
+import "./Diagramm.css";
 import React from "react";
 
+import {
+  Chart as ChartJS,
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  Title,
+  Tooltip,
+  Legend,
+} from "chart.js";
 import { Line } from "react-chartjs-2";
 
-const Diagramm = ({chartData}) => {
-  
+ChartJS.register(
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  Title,
+  Tooltip,
+  Legend
+);
+
+export const options = {
+  responsive: true,
+  plugins: {
+    legend: {
+      position: "top",
+    },
+    title: {
+      display: true,
+      text: "Chart.js Line Chart",
+    },
+  },
+};
+
+const Diagramm = ({ chartData }) => {
   return (
     <section className="diagram">
-     <article>
-            <Line data={chartData} />
-     </article>
+      <article>
+        <Line data={chartData} options={options} />
+      </article>
     </section>
   );
 };
